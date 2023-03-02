@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6a9bd5ef-828f-413f-9571-864b49d288e5" name="travelbetnam.woobi.co.kr" url="http://travelbetnam.woobi.co.kr">
+        <fileTransfer host="travelbetnam.woobi.co.kr" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

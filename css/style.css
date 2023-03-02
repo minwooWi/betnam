@@ -1,0 +1,188 @@
+* {font-family: 'SUIT', sans-serif;}
+
+#savePdfBtn{
+    width: 100px;
+    border: 1px solid;
+    cursor : pointer;
+}
+
+.mainBanner{
+  width: 100px;
+  float: right;
+  margin-right: 100px;
+}
+
+.label{
+    background : rgb(146, 52, 74);
+    color: white;
+}
+
+.contentBox{
+    margin: 20px auto;
+    width: 555px;
+}
+
+.contentBox.titleWrap{
+    text-align: center;
+}
+
+.titleWrap > .titleKor{
+    color : rgb(146, 52, 74);
+    font-size: 40px;
+}
+
+.titleWrap > .titleEng{
+    color : rgb(208, 97, 109);
+    font-size: 35px;
+}
+
+.contentBox > .company_info_wrap{
+    display: flex;
+}
+
+.contentBox > .company_info_wrap > .company_info{
+    border: 1px solid;
+    background : rgb(146, 52, 74);
+    color: white;
+}
+
+.contentBox > .company_info_wrap > .company_input_wrap{
+    width: 71%;
+}
+
+.contentBox > .company_info_wrap > .company_input_wrap > .company_input{
+    width: 100%;
+    height: 100%;
+}
+
+.contentBox > .company_info_wrap > .company_info{
+    width: 30%;
+    border: 1px solid;
+    background : rgb(146, 52, 74);
+    color: white;
+}
+
+.contentBox > .company_info_wrap > .company_input_wrap{
+    width: 71%;
+}
+
+.contentBox > .company_info_wrap > .reservation_maker_info_wrap{
+    width: 35%;
+}
+
+.contentBox > .company_info_wrap >  .employee_email_info_wrap{
+    width: 36%;
+}
+
+.contentBox > .company_info_wrap > .reservation_maker_info_wrap > .reservation_maker_info_input{
+    width: 100%;
+    height: 100%;
+}
+
+.contentBox > .company_info_wrap >  .employee_email_info_wrap > .employee_email_info_input{
+    width: 100%;
+    height: 100%;
+}
+
+.contentBox > .gbcWrap{
+    display: flex;
+}
+
+.contentBox > .gbcWrap > .gbc{
+    width: 35%;
+    border: 1px solid;
+    background : rgb(146, 52, 74);
+    color: white;
+    text-align: center;
+}
+
+.contentBox > .gbcWrapInput{
+    display: flex;
+}
+
+.reservation_date{
+    width: 185px;
+}
+
+.contentBox > .main_reservation_info_wrap{
+    display: flex;
+    text-align: center;
+}
+
+.main_reservation_info_wrap > .reservation_info{
+    border-bottom: 1px solid;
+    width: 30%;
+    background : rgb(250, 240, 229);
+    color: black;
+}
+
+.main_reservation_info_wrap > .reservation_input_wrap{
+    width: 70%;
+}
+
+.reservation_input_wrap > .reservation_input{
+    width: 100%;
+    height: 100%;
+}
+
+.main_reservation_desc{
+    font-size: 10px;
+}
+
+.travelAgentInfo{
+    width: 23%;
+    border: 1px solid;
+    background : rgb(146, 52, 74);
+    color: white;
+}
+
+.travelAgentInfoInputWrap{
+    width: 77%;
+}
+
+.travelAgentInfoInput{
+    width: 100%;
+    height: 100%;
+}
+.employee_email_info_inputWrap{
+    width: 30%;
+}
+
+.employee_email_info_input{
+    width: 100%;
+    height: 100%;
+}
+
+.employee_email_default_info{
+    border: 1px solid;
+}
+
+.employee_email_default_info_text{
+    margin-top: 10px;
+}
+
+.top_main_reservation_desc{
+    color: rgb(225, 189, 130);
+}
+
+.period_time_from_wrap{
+    width: 30%;
+}
+
+.period_time_from_input{
+    width: 100%;
+    height: 100%;
+}
+
+.period_time_to_wrap{
+    width: 30%;
+}
+
+.period_time_to_input{
+    width: 100%;
+    height: 100%;
+}
+
+.people_count{
+    width: 16.6%;
+}

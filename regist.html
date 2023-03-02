@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Info Add</title>
+    <!-- Custom fonts for this template -->
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Manage Reservation</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="regist.html?crud=c&type=golf">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>골프 정보 입력</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="regist.html?crud=c&type=hotel">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>호텔 정보 입력</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="regist.html?crud=c&type=tour">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>투어 정보 입력</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="regist.html?crud=c&type=vehicle">-->
+<!--                    <i class="fas fa-fw fa-tachometer-alt"></i>-->
+<!--                    <span>차량 정보 입력</span></a>-->
+<!--            </li>-->
+
+<!--            &lt;!&ndash; Divider &ndash;&gt;-->
+<!--            <hr class="sidebar-divider">-->
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="regist.html?crud=c&type=total">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>혼합 일괄 입력</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Sidebar Toggle (Topbar) -->
+                <form class="form-inline">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </form>
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- #### START GOLF RESERVATION FORM #### -->
+            <div id="golf" style="display: none">
+                <div>
+                    <img src="./img/banner.png" alt="banner" class="mainBanner">
+                </div>
+                <div class="contentBox titleWrap">
+                    <div class="titleKor">예약 확정서</div>
+                    <div class="titleEng">CONFIRMATION LETTER</div>
+                    <input type="submit" name="golfSubmit" value="골프예약정보등록" class="btn btn-primary btn-block">
+                </div>
+
+                <div class="contentBox select">
+                    <label for="deposit_status" class="label">예약금 상태</label>
+                    <select class="selectpicker" name="deposit_status" id="deposit_status" required>
+                        <option value="">-</option>
+                        <option value="0">미결제</option>
+                        <option value="1">결제대기</option>
+                        <option value="2">결제완료</option>
+                    </select>
+                    <label for="payment_status" class="label">결제 상태</label>
+                    <select class="selectpicker" name="payment_status" id="payment_status" required>
+                        <option value="">-</option>
+                        <option value="0">미결제</option>
+                        <option value="1">결제대기</option>
+                        <option value="2">결제완료</option>
+                    </select>
+                </div>
+                <div class="contentBox">
+                    <div class="company_info_wrap">
+                        <div class="travelAgentInfo">
+                            회사 정보<br>
+                            Travel Agent Info
+                        </div>
+                        <div class="travelAgentInfoInputWrap">
+                            <input type="text" id="company_info" name="company_info" class="travelAgentInfoInput" value="VIETNAM CHOICE A902, 115 Nguyen Van Linh, Vinh Trung, Hai Chau, Da Nang" required>
+                        </div>
+                    </div>
+                    <div class="company_info_wrap">
+                        <div class="company_info">
+                            예약자 정보<br>
+                            Booker Info
+                        </div>
+                        <div class="reservation_maker_info_wrap">
+                            <input type="text" id="reservation_maker_info" name="reservation_maker_info" class="reservation_maker_info_input" required>
+                        </div>
+                        <div class="employee_email_info_inputWrap">
+                            <input type="text" id="employee_email_info" name="employee_email_info" class="employee_email_info_input" placeholder="(직원이메일선택)" required>
+                        </div>
+                        <div class="employee_email_default_info">
+                            <div class="employee_email_default_info_text">@vetnamchoice.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <div class="gbcWrap">
+                        <div class="gbc">
+                            고객 성함<br>
+                            Guest Name
+                        </div>
+                        <div class="gbc">
+                            예약일자<br>
+                            Booking period
+                        </div>
+                        <div class="gbc">
+                            연락처<br>
+                            Contact
+                        </div>
+                    </div>
+                    <div class="gbcWrapInput">
+                        <div>
+                            <input type="text" class="" id="customer_name" name="customer_name" required>
+                        </div>
+                        <div>
+                            <input type="date" class="reservation_date" id="reservation_date" name="reservation_date" required>
+                        </div>
+                        <div>
+                            <input type="text" class="" id="contact_number" name="contact_number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contentBox">►골프 예약 정보
+                    <div class="main_reservation_info_wrap" style="border-top: solid 0.3em rgb(171 131 104);">
+                        <div class="reservation_info">
+                            예약 번호<br>
+                            <span class="top_main_reservation_desc">Reservation Code</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="reservation_code" class="reservation_input" id="reservation_code" enable>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            골프<br>
+                            <span class="top_main_reservation_desc">Golf</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="golf_course_name" class="reservation_input" id="golf-course-name" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            업체 정보<br>
+                            <span class="top_main_reservation_desc">Information</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="golf_company_info" class="reservation_input" id="golf-company-info" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            예약 일정<br>
+                            <span class="top_main_reservation_desc">Period</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="date" name="reservation_schedule" class="reservation_input" id="reservation-schedule" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            <span class="top_main_reservation_desc">티옵 시간</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="time" name="tee_time" class="reservation_input" id="tee-time" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            <span class="top_main_reservation_desc">홀</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <select class="reservation_input" name="hole" id="hole" required>
+                                <option value="">Select hole number</option>
+                                <option value="9">9</option>
+                                <option value="18">18</option>
+                                <option value="27">27</option>
+                                <option value="36">36</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            <span class="top_main_reservation_desc">인원수</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="number" name="headcount" class="reservation_input" id="headcount" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            포함 사항<br>
+                            Included
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="included_items" class="reservation_input" id="included_items" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            불포함 사항<br>
+                            Not Included
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="exincluded_items" class="reservation_input" id="exincluded_items" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            노트<br>
+                            <span class="top_main_reservation_desc">Note</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="request" class="reservation_input" id="request" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+                </div>
+
+                <div class="contentBox">► 유의 사항
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
+                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
+                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
+                </div>
+                <div class="contentBox">► 취소 규정
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
+                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
+                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
+                </div>
+            </div>
+            <!-- #### END GOLF RESERVATION FORM #### -->
+
+            <!-- #### START HOTEL RESERVATION FORM #### -->
+            <div id="hotel" style="display: none">
+                <div>
+                    <img src="./img/banner.png" alt="banner" class="mainBanner">
+                </div>
+                <div class="contentBox titleWrap">
+                    <div class="titleKor">예약 확정서</div>
+                    <div class="titleEng">CONFIRMATION LETTER</div>
+                    <input type="submit" name="hotelSubmit" value="호텔예약정보등록" class="btn btn-primary btn-block">
+                </div>
+
+                <div class="contentBox select">
+                    <label for="deposit_status" class="label">예약금 상태</label>
+                    <select class="selectpicker" name="deposit_status" id="deposit_status" required>
+                        <option value="">-</option>
+                        <option value="0">미결제</option>
+                        <option value="1">결제대기</option>
+                        <option value="2">결제완료</option>
+                    </select>
+                    <label for="payment_status" class="label">결제 상태</label>
+                    <select class="selectpicker" name="payment_status" id="payment_status" required>
+                        <option value="">-</option>
+                        <option value="0">미결제</option>
+                        <option value="1">결제대기</option>
+                        <option value="2">결제완료</option>
+                    </select>
+                </div>
+                <div class="contentBox">
+                    <div class="company_info_wrap">
+                        <div class="travelAgentInfo">
+                            회사 정보<br>
+                            Travel Agent Info
+                        </div>
+                        <div class="travelAgentInfoInputWrap">
+                            <input type="text" id="company_info" name="company_info" class="travelAgentInfoInput" value="VIETNAM CHOICE A902, 115 Nguyen Van Linh, Vinh Trung, Hai Chau, Da Nang" required>
+                        </div>
+                    </div>
+                    <div class="company_info_wrap">
+                        <div class="company_info">
+                            예약자 정보<br>
+                            Booker Info
+                        </div>
+                        <div class="reservation_maker_info_wrap">
+                            <input type="text" id="reservation_maker_info" name="reservation_maker_info" class="reservation_maker_info_input" required>
+                        </div>
+                        <div class="employee_email_info_inputWrap">
+                            <input type="text" id="employee_email_info" name="employee_email_info" class="employee_email_info_input" placeholder="(직원이메일선택)" required>
+                        </div>
+                        <div class="employee_email_default_info">
+                            <div class="employee_email_default_info_text">@vetnamchoice.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <div class="gbcWrap">
+                        <div class="gbc">
+                            고객 성함<br>
+                            Guest Name
+                        </div>
+                        <div class="gbc">
+                            예약일자<br>
+                            Booking period
+                        </div>
+                        <div class="gbc">
+                            연락처<br>
+                            Contact
+                        </div>
+                    </div>
+                    <div class="gbcWrapInput">
+                        <div>
+                            <input type="text" class="" id="customer_name" name="customer_name" required>
+                        </div>
+                        <div>
+                            <input type="date" class="reservation_date" id="reservation_date" name="reservation_date" required>
+                        </div>
+                        <div>
+                            <input type="text" class="" id="contact_number" name="contact_number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contentBox">►호텔 예약 정보
+                    <div class="main_reservation_info_wrap" style="border-top: solid 0.3em rgb(171 131 104);">
+                        <div class="reservation_info">
+                            예약 번호<br>
+                            <span class="top_main_reservation_desc">Reservation Code</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="reservation_code" class="reservation_input" id="reservation_code">
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            호텔<br>
+                            <span class="top_main_reservation_desc">hotel</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="hotel_name" class="reservation_input" id="hotel_name" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            업체 정보<br>
+                            <span class="top_main_reservation_desc">Information</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="hotel_company_info" class="reservation_input" id="hotel_company_info" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            체크인
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="date" name="checkin_date" class="reservation_input" id="checkin_date" required>
+                        </div>
+                        <div class="reservation_info">
+                            체크아웃
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="date" name="checkout_date" class="reservation_input" id="checkout_date" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            <span class="top_main_reservation_desc">객실수</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="number" name="room_count" class="reservation_input" id="room_count" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            <span class="top_main_reservation_desc">침대 타입</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="room_type" class="reservation_input" id="room_type" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            인원수<br>(성인)
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="number" name="adult_count" class="reservation_input" id="adult_count" required>
+                        </div>
+                        <div class="reservation_info">
+                            인원수<br>(어린이)
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="number" name="child_count" class="reservation_input" id="child_count" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            <span class="top_main_reservation_desc">조식</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <select class="form-control" name="breakfast_included" id="breakfast_included" required>
+                                <option value="">조식 포함 여부 선택</option>
+                                <option value="0">불포함</option>
+                                <option value="1">포함</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            베드 타입
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <select class="form-control" name="bed_type" id="bed_type" required>
+                                <option value="0">더블</option>
+                                <option value="1">트윈</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            요청 사항
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="request" class="reservation_input" id="request" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+                </div>
+
+                <div class="contentBox">► 유의 사항
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
+                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
+                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
+                </div>
+                <div class="contentBox">► 취소 규정
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
+                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
+                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
+                </div>
+            </div>
+            <!-- #### END HOTEL RESERVATION FORM #### -->
+
+            <!-- #### START TOUR RESERVATION FORM #### -->
+            <div id="tour" style="display: none">
+                <div>
+                    <img src="./img/banner.png" alt="banner" class="mainBanner">
+                </div>
+                <div class="contentBox titleWrap">
+                    <div class="titleKor">예약 확정서</div>
+                    <div class="titleEng">CONFIRMATION LETTER</div>
+                    <input type="submit" name="tourSubmit" value="투어예약정보등록" class="btn btn-primary btn-block">
+                </div>
+
+                <div class="contentBox select">
+                    <label for="deposit_status" class="label">예약금 상태</label>
+                    <select class="selectpicker" name="deposit_status" id="deposit_status" required>
+                        <option value="">-</option>
+                        <option value="0">미결제</option>
+                        <option value="1">결제대기</option>
+                        <option value="2">결제완료</option>
+                    </select>
+                    <label for="payment_status" class="label">결제 상태</label>
+                    <select class="selectpicker" name="payment_status" id="payment_status" required>
+                        <option value="">-</option>
+                        <option value="0">미결제</option>
+                        <option value="1">결제대기</option>
+                        <option value="2">결제완료</option>
+                    </select>
+                </div>
+                <div class="contentBox">
+                    <div class="company_info_wrap">
+                        <div class="travelAgentInfo">
+                            회사 정보<br>
+                            Travel Agent Info
+                        </div>
+                        <div class="travelAgentInfoInputWrap">
+                            <input type="text" id="company_info" name="company_info" class="travelAgentInfoInput" value="VIETNAM CHOICE A902, 115 Nguyen Van Linh, Vinh Trung, Hai Chau, Da Nang" required>
+                        </div>
+                    </div>
+                    <div class="company_info_wrap">
+                        <div class="company_info">
+                            예약자 정보<br>
+                            Booker Info
+                        </div>
+                        <div class="reservation_maker_info_wrap">
+                            <input type="text" id="reservation_maker_info" name="reservation_maker_info" class="reservation_maker_info_input" required>
+                        </div>
+                        <div class="employee_email_info_inputWrap">
+                            <input type="text" id="employee_email_info" name="employee_email_info" class="employee_email_info_input" placeholder="(직원이메일선택)" required>
+                        </div>
+                        <div class="employee_email_default_info">
+                            <div class="employee_email_default_info_text">@vetnamchoice.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentBox">
+                    <div class="gbcWrap">
+                        <div class="gbc">
+                            고객 성함<br>
+                            Guest Name
+                        </div>
+                        <div class="gbc">
+                            예약일자<br>
+                            Booking period
+                        </div>
+                        <div class="gbc">
+                            연락처<br>
+                            Contact
+                        </div>
+                    </div>
+                    <div class="gbcWrapInput">
+                        <div>
+                            <input type="text" class="" id="customer_name" name="customer_name" required>
+                        </div>
+                        <div>
+                            <input type="date" class="reservation_date" id="reservation_date" name="reservation_date" required>
+                        </div>
+                        <div>
+                            <input type="text" class="" id="contact_number" name="contact_number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contentBox">►투어 예약 정보
+                    <div class="main_reservation_info_wrap" style="border-top: solid 0.3em rgb(171 131 104);">
+                        <div class="reservation_info">
+                            투어명<br>
+                            <span class="top_main_reservation_desc">Tour</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="tour_name" class="reservation_input" id="tour_name" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            이용일자<br>
+                            <span class="top_main_reservation_desc">Period</span>
+                        </div>
+                        <div class="period_time_from_wrap">
+                            <input type="date" name="period_time_from" class="period_time_from_input" id="period_time_from" required>
+                        </div>
+                        <div style="width: 10%;margin-top: 10px">
+                            ~
+                        </div>
+                        <div class="period_time_to_wrap">
+                            <input type="date" name="period_time_to" class="period_time_to_input" id="period_time_to" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            상세내역<br>
+                            <span class="top_main_reservation_desc">Details</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="details" class="reservation_input" id="details" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            인원수<br>
+                            <span class="top_main_reservation_desc">(성인)</span>
+                        </div>
+                        <div class="">
+                            <select class="selectpicker" name="adult_count" id="adult_count" required>
+                                <option value="">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            인원수<br>
+                            <span class="top_main_reservation_desc">(어린이)</span>
+                        </div>
+                        <div class="">
+                            <select class="selectpicker" name="child_count" id="child_count" required>
+                                <option value="">-</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            어린이 나이
+                        </div>
+                        <div class="">
+                            <input type="text" name="child_age" class="" id="child_age">
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            투어 시작 시간
+                        </div>
+                        <div class="">
+                            <input type="date" name="tour_time_from" class="" id="tour_time_from" required>
+                        </div>
+                        <div class="reservation_info">
+                            투어 종료 시간
+                        </div>
+                        <div class="">
+                            <input type="date" name="tour_time_to" class="" id="tour_time_to" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            차량 픽업 장소
+                        </div>
+                        <div class="">
+                            <input type="text" name="car_pickup_location" class="" id="car_pickup_location" required>
+                        </div>
+                        <div class="reservation_info">
+                            차량 픽업 시간
+                        </div>
+                        <div class="">
+                            <input type="date" name="car_pickup_time" class="" id="car_pickup_time" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            차량 샌딩 장소
+                        </div>
+                        <div class="">
+                            <input type="text" name="car_send_location" class="" id="car_send_location" required>
+                        </div>
+                        <div class="reservation_info">
+                            차량 샌딩 시간
+                        </div>
+                        <div class="">
+                            <input type="date" name="car_send_time" class="" id="car_send_time" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            가이드
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <select class="form-control" name="guide_included" id="guide_included" required>
+                                <option value="">가이드 포함 여부 선택</option>
+                                <option value="1">불포함</option>
+                                <option value="2">영어 가이드 포함</option>
+                                <option value="3">한국어 현지 가이드 포함</option>
+                                <option value="4">한국어 가이드 포함</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            포함 사항<br>
+                            <span class="top_main_reservation_desc">Included</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="included_items" class="reservation_input" id="included_items" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            불포함 사항<br>
+                            <span class="top_main_reservation_desc">Not Included</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="exincluded_items" class="reservation_input" id="exincluded_items" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info">
+                            요청 사항<br>
+                            <span class="top_main_reservation_desc">Special Request</span>
+                        </div>
+                        <div class="reservation_input_wrap">
+                            <input type="text" name="request" class="reservation_input" id="request" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+                </div>
+
+                <div class="contentBox">► 유의 사항
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
+                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
+                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
+                </div>
+                <div class="contentBox">► 취소 규정
+                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
+                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
+                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
+                </div>
+            </div>
+            <!-- #### END TOUR RESERVATION FORM #### -->
+
+
+
+
+            <!-- Footer -->
+            <footer include-html="footer.html" class="sticky-footer bg-white"></footer>
+            <!-- End of Footer -->
+        </div>
+    </div>
+    <!-- End of Page Wrapper -->
+
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- custom -->
+<script src="js/custom.js"></script>
+<script src="js/common.js"></script>
+</body>
+</html>
