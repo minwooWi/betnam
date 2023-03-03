@@ -10,44 +10,38 @@ if($r_crud == "c") {
 <div class="contentBox titleWrap">
     <div class="titleKor">예약 확정서</div>
     <div class="titleEng">CONFIRMATION LETTER</div>
-    <input type="submit" name="golfSubmit" value="골프예약정보등록" class="btn btn-primary btn-block">
+    <input id="insertInput" type="submit" class="btn btn-primary btn-block">
 </div>
 
-<div class="deposit_wrap">
-    <div class="">
-        <label for="deposit_date" class="label">예약금</label>
-        <input type="date" class="" id="deposit_date" name="deposit_date" required>
-        <select class="selectpicker" name="deposit_status" id="deposit_status" required>
-            <option value="">-</option>
-            <option value="1">입금대기</option>
-            <option value="2">입금완료</option>
-        </select>
-        <div>
-            <input type="text" class="" id="deposit_amount" name="deposit_amount" required>
-            <select class="selectpicker" name="deposit_currency_type" id="deposit_currency_type" required>
-                <option value="">-</option>
-                <option value="1">원</option>
-                <option value="2">베트남동</option>
-            </select>
-        </div>
-    </div>
-    <div class="">
-        <label for="deposit_date" class="label">잔금</label>
-        <input type="date" class="" id="payment_date" name="payment_date" required>
-        <select class="selectpicker" name="payment_status" id="payment_status" required>
-            <option value="">-</option>
-            <option value="1">입금예정</option>
-            <option value="2">입금완료</option>
-        </select>
-        <div>
-            <input type="text" class="" id="payment_amount" name="payment_amount" required>
-            <select class="selectpicker" name="payment_currency_type" id="payment_currency_type" required>
-                <option value="">-</option>
-                <option value="1">원</option>
-                <option value="2">베트남동</option>
-            </select>
-        </div>
-    </div>
+<div class="contentBox">
+    <label for="deposit_date" class="label">예약금</label>
+    <input type="date" class="" id="deposit_date" name="deposit_date" required>
+    <select class="selectpicker" name="deposit_status" id="deposit_status" required>
+        <option value="">-</option>
+        <option value="1">입금대기</option>
+        <option value="2">입금완료</option>
+    </select>
+    <input type="text" class="" id="deposit_amount" name="deposit_amount" required>
+    <select class="selectpicker" name="deposit_currency_type" id="deposit_currency_type" required>
+        <option value="">-</option>
+        <option value="1">원</option>
+        <option value="2">베트남동</option>
+    </select>
+</div>
+<div class="contentBox">
+    <label for="deposit_date" class="label">잔금</label>
+    <input type="date" class="" id="payment_date" name="payment_date" required>
+    <select class="selectpicker" name="payment_status" id="payment_status" required>
+        <option value="">-</option>
+        <option value="1">입금예정</option>
+        <option value="2">입금완료</option>
+    </select>
+    <input type="text" class="" id="payment_amount" name="payment_amount" required>
+    <select class="selectpicker" name="payment_currency_type" id="payment_currency_type" required>
+        <option value="">-</option>
+        <option value="1">원</option>
+        <option value="2">베트남동</option>
+    </select>
 </div>
 <div class="contentBox">
     <div class="company_info_wrap">
@@ -114,39 +108,33 @@ A902, 115 Nguyen Van Linh, Vinh Trung, Hai Chau, Da Nang</textarea>
     <div class="titleEng">CONFIRMATION LETTER</div>
     <input type="hidden" value="<?php echo $reservation_number;?>" name="reservation_number">
     <input id="updateInput" type="submit" class="btn btn-primary btn-block">
-    <div id="savePdfBtn3" class="btn-block">PDF 다운로드</div>
+    <div id="savePdfBtn" class="btn-block">PDF 다운로드</div>
 </div>
-<div class="deposit_wrap">
-    <div class="">
-        <label for="deposit_date" class="label">예약금</label>
-        <input type="date" class="" id="deposit_date" name="deposit_date" value="<?php echo $deposit_date;?>" required>
-            <select class="selectpicker" name="deposit_status" id="deposit_status" required>
-            <option value="1" <?php if($deposit_status == "1") echo "SELECTED";?>>입금대기</option>
-            <option value="2" <?php if($deposit_status == "2") echo "SELECTED";?>>입금완료</option>
-        </select>
-        <div>
-            <input type="text" class="" id="deposit_amount" name="deposit_amount" value="<?php echo $deposit_amount;?>" required>
-            <select class="selectpicker" name="deposit_currency_type" id="deposit_currency_type" required>
-                <option value="1" <?php if($deposit_currency_type == "1") echo "SELECTED";?>>원</option>
-                <option value="2" <?php if($deposit_currency_type == "2") echo "SELECTED";?>>베트남동</option>
-            </select>
-        </div>
-    </div>
-    <div class="">
-        <label for="deposit_date" class="label">잔금</label>
-        <input type="date" class="" id="payment_date" name="payment_date" value="<?php echo $payment_date;?>" required>
-        <select class="selectpicker" name="payment_status" id="payment_status" required>
-            <option value="1" <?php if($payment_status == "1") echo "SELECTED";?>>입금예정</option>
-            <option value="2" <?php if($payment_status == "2") echo "SELECTED";?>>입금완료</option>
-        </select>
-        <div>
-            <input type="text" class="" id="payment_amount" name="payment_amount" value="<?php echo $payment_amount;?>"  required>
-            <select class="selectpicker" name="payment_currency_type" id="payment_currency_type" required>
-                <option value="1" <?php if($payment_currency_type == "1") echo "SELECTED";?>>원</option>
-                <option value="2" <?php if($payment_currency_type == "2") echo "SELECTED";?>>베트남동</option>
-            </select>
-        </div>
-    </div>
+<div class="contentBox">
+    <label for="deposit_date" class="label">예약금</label>
+    <input type="date" class="" id="deposit_date" name="deposit_date" value="<?php echo $deposit_date;?>" required>
+        <select class="selectpicker" name="deposit_status" id="deposit_status" required>
+        <option value="1" <?php if($deposit_status == "1") echo "SELECTED";?>>입금대기</option>
+        <option value="2" <?php if($deposit_status == "2") echo "SELECTED";?>>입금완료</option>
+    </select>
+    <input type="text" class="" id="deposit_amount" name="deposit_amount" value="<?php echo $deposit_amount;?>" required>
+    <select class="selectpicker" name="deposit_currency_type" id="deposit_currency_type" required>
+        <option value="1" <?php if($deposit_currency_type == "1") echo "SELECTED";?>>원</option>
+        <option value="2" <?php if($deposit_currency_type == "2") echo "SELECTED";?>>베트남동</option>
+    </select>
+</div>
+<div class="contentBox">
+    <label for="deposit_date" class="label">잔금</label>
+    <input type="date" class="" id="payment_date" name="payment_date" value="<?php echo $payment_date;?>" required>
+    <select class="selectpicker" name="payment_status" id="payment_status" required>
+        <option value="1" <?php if($payment_status == "1") echo "SELECTED";?>>입금예정</option>
+        <option value="2" <?php if($payment_status == "2") echo "SELECTED";?>>입금완료</option>
+    </select>
+    <input type="text" class="" id="payment_amount" name="payment_amount" value="<?php echo $payment_amount;?>"  required>
+    <select class="selectpicker" name="payment_currency_type" id="payment_currency_type" required>
+        <option value="1" <?php if($payment_currency_type == "1") echo "SELECTED";?>>원</option>
+        <option value="2" <?php if($payment_currency_type == "2") echo "SELECTED";?>>베트남동</option>
+    </select>
 </div>
 <div class="contentBox">
     <div class="company_info_wrap">

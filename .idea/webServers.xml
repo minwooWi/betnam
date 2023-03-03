@@ -9,6 +9,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="4f909dc2-3361-4388-b03d-2db979a1ccc2" name="naobilly" url="http://naobilly.kr">
+        <fileTransfer rootFolder="/betnam" host="naobilly.kr" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

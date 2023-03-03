@@ -522,7 +522,7 @@ include_once("./include/left.php");
             <!-- End of Topbar -->
 
             <!-- #### START GOLF RESERVATION FORM #### -->
-            <div id="golf" style="display: none">
+            <div id="golf" style="display: none;margin:0 auto;width: 1000px">
                 <?php include("./include/basicInfo.php");?>
 
                 <div class="contentBox">►골프 예약 정보
@@ -636,7 +636,7 @@ include_once("./include/left.php");
             <!-- #### END GOLF RESERVATION FORM #### -->
 
             <!-- #### START HOTEL RESERVATION FORM #### -->
-            <div id="hotel" style="display: none">
+            <div id="hotel" style="display: none;margin:0 auto;width: 1000px">
                 <?php include("./include/basicInfo.php");?>
 
                 <div class="contentBox">►호텔 예약 정보
@@ -762,7 +762,7 @@ include_once("./include/left.php");
             <!-- #### END HOTEL RESERVATION FORM #### -->
 
 			<!-- #### START TOUR RESERVATION FORM #### -->
-            <div id="tour" style="display: none">
+            <div id="tour" style="display: none;margin:0 auto;width: 1000px">
                 <?php include("./include/basicInfo.php");?>
 
                 <div class="contentBox">►투어 예약 정보

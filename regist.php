@@ -21,7 +21,7 @@ include_once("./include/header.php");
 include_once("./include/left.php");
 ?>
 
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column" style="width: 1000px !important;margin: 0 auto;">
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!-- Sidebar Toggle (Topbar) -->

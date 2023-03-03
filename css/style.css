@@ -27,6 +27,8 @@
 .label{
     background : rgb(146, 52, 74);
     color: white;
+    text-align: center;
+    width: 50px;
 }
 
 .contentBox{
@@ -349,7 +351,5 @@
 }
 
 .deposit_wrap{
-    margin-left: 350px;
-    display: flex;
-    width: 555px;
+
 }
