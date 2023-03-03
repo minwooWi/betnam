@@ -460,14 +460,14 @@ if($type == "tour"){
 		*/
 
 		$car_send_location = $res['car_send_location'];
-		
+
+        /*
 		$pickup_time = $res['pickup_time'];
 		$pickup_time_first = explode(' ', $pickup_time)[0];
 		$pickup_time_second = explode(' ', $pickup_time)[1];
 		$pickup_time_second_first = explode(':', $pickup_time_second)[0];
 		$pickup_time_second_second = explode(':', $pickup_time_second)[1];
-		
-		/*
+
 		echo "pickup_time_first -> " . $pickup_time_first . "<br/>";
 		echo "pickup_time_second -> " . $pickup_time_second . "<br/>";
 		echo "pickup_time_second_first -> " . $pickup_time_second_first . "<br/>";
@@ -509,7 +509,7 @@ include_once("./include/header.php");
 include_once("./include/left.php");
 ?>
 
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column" style="width: 1000px !important;margin: 0 auto;">
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!-- Sidebar Toggle (Topbar) -->
@@ -522,7 +522,7 @@ include_once("./include/left.php");
             <!-- End of Topbar -->
 
             <!-- #### START GOLF RESERVATION FORM #### -->
-            <div id="golf" style="display: none;margin:0 auto;width: 1000px">
+            <div id="golf" style="display: none;">
                 <?php include("./include/basicInfo.php");?>
 
                 <div class="contentBox">►골프 예약 정보
@@ -636,7 +636,7 @@ include_once("./include/left.php");
             <!-- #### END GOLF RESERVATION FORM #### -->
 
             <!-- #### START HOTEL RESERVATION FORM #### -->
-            <div id="hotel" style="display: none;margin:0 auto;width: 1000px">
+            <div id="hotel" style="display: none;">
                 <?php include("./include/basicInfo.php");?>
 
                 <div class="contentBox">►호텔 예약 정보
@@ -762,7 +762,7 @@ include_once("./include/left.php");
             <!-- #### END HOTEL RESERVATION FORM #### -->
 
 			<!-- #### START TOUR RESERVATION FORM #### -->
-            <div id="tour" style="display: none;margin:0 auto;width: 1000px">
+            <div id="tour" style="display: none;">
                 <?php include("./include/basicInfo.php");?>
 
                 <div class="contentBox">►투어 예약 정보

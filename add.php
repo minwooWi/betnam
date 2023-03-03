@@ -23,7 +23,6 @@ if(isset($_POST['golfSubmit'])) {
     $deposit_amount = mysqli_real_escape_string($mysqli, $_POST['deposit_amount']);
     $deposit_currency_type = mysqli_real_escape_string($mysqli, $_POST['deposit_currency_type']);
     $deposit_status = mysqli_real_escape_string($mysqli, $_POST['deposit_status']);
-
     $payment_date = mysqli_real_escape_string($mysqli, $_POST['payment_date']);
     $payment_amount = mysqli_real_escape_string($mysqli, $_POST['payment_amount']);
     $payment_currency_type = mysqli_real_escape_string($mysqli, $_POST['payment_currency_type']);
@@ -95,13 +94,21 @@ if(isset($_POST['golfSubmit'])) {
 
 if(isset($_POST['hotelSubmit'])) {
     // Basic Reservation info
+    $reservation_code = mysqli_real_escape_string($mysqli, $_POST['reservation_code']);
     $customer_name = mysqli_real_escape_string($mysqli, $_POST['customer_name']);
     $reservation_date = mysqli_real_escape_string($mysqli, $_POST['reservation_date']);
     $contact_number = mysqli_real_escape_string($mysqli, $_POST['contact_number']);
     $company_info = mysqli_real_escape_string($mysqli, $_POST['company_info']);
     $reservation_maker_info = mysqli_real_escape_string($mysqli, $_POST['reservation_maker_info']);
     $employee_email_info = mysqli_real_escape_string($mysqli, $_POST['employee_email_info']);
+
+    $deposit_date = mysqli_real_escape_string($mysqli, $_POST['deposit_date']);
+    $deposit_amount = mysqli_real_escape_string($mysqli, $_POST['deposit_amount']);
+    $deposit_currency_type = mysqli_real_escape_string($mysqli, $_POST['deposit_currency_type']);
     $deposit_status = mysqli_real_escape_string($mysqli, $_POST['deposit_status']);
+    $payment_date = mysqli_real_escape_string($mysqli, $_POST['payment_date']);
+    $payment_amount = mysqli_real_escape_string($mysqli, $_POST['payment_amount']);
+    $payment_currency_type = mysqli_real_escape_string($mysqli, $_POST['payment_currency_type']);
     $payment_status = mysqli_real_escape_string($mysqli, $_POST['payment_status']);
 
     // HOTEL INFO
@@ -128,8 +135,10 @@ if(isset($_POST['hotelSubmit'])) {
 
     // Insert data into customer_info table
     $query1 = "INSERT INTO customer_info 
-                (customer_name, reservation_date, contact_number, company_info, reservation_maker_info,employee_email_info, deposit_status, payment_status)
-                VALUES ('$customer_name', '$reservation_date', '$contact_number', '$company_info', '$reservation_maker_info', '$employee_email_info', '$deposit_status', '$payment_status' )";
+                (customer_name, reservation_date, contact_number, company_info, reservation_maker_info,employee_email_info
+                ,deposit_date,deposit_amount,deposit_currency_type,deposit_status ,payment_date,payment_amount,payment_currency_type,payment_status)
+                VALUES ('$customer_name', '$reservation_date', '$contact_number', '$company_info', '$reservation_maker_info', '$employee_email_info'
+                ,'$deposit_date','$deposit_amount','$deposit_currency_type','$deposit_status' ,'$payment_date','$payment_amount','$payment_currency_type','$payment_status' )";
     $result1 = $mysqli->query($query1);
 
     if (!$result1) {
@@ -177,7 +186,14 @@ if(isset($_POST['tourSubmit'])) {
     $company_info = mysqli_real_escape_string($mysqli, $_POST['company_info']);
     $reservation_maker_info = mysqli_real_escape_string($mysqli, $_POST['reservation_maker_info']);
     $employee_email_info = mysqli_real_escape_string($mysqli, $_POST['employee_email_info']);
+
+    $deposit_date = mysqli_real_escape_string($mysqli, $_POST['deposit_date']);
+    $deposit_amount = mysqli_real_escape_string($mysqli, $_POST['deposit_amount']);
+    $deposit_currency_type = mysqli_real_escape_string($mysqli, $_POST['deposit_currency_type']);
     $deposit_status = mysqli_real_escape_string($mysqli, $_POST['deposit_status']);
+    $payment_date = mysqli_real_escape_string($mysqli, $_POST['payment_date']);
+    $payment_amount = mysqli_real_escape_string($mysqli, $_POST['payment_amount']);
+    $payment_currency_type = mysqli_real_escape_string($mysqli, $_POST['payment_currency_type']);
     $payment_status = mysqli_real_escape_string($mysqli, $_POST['payment_status']);
 
     // TOUR INFO
@@ -225,10 +241,13 @@ if(isset($_POST['tourSubmit'])) {
     // Start transaction
     $mysqli->autocommit(FALSE);
 
+
     // Insert data into customer_info table
     $query1 = "INSERT INTO customer_info 
-                (customer_name, reservation_date, contact_number, company_info, reservation_maker_info,employee_email_info, deposit_status, payment_status)
-                VALUES ('$customer_name', '$reservation_date', '$contact_number', '$company_info', '$reservation_maker_info', '$employee_email_info', '$deposit_status', '$payment_status' )";
+                (customer_name, reservation_date, contact_number, company_info, reservation_maker_info,employee_email_info
+                ,deposit_date,deposit_amount,deposit_currency_type,deposit_status ,payment_date,payment_amount,payment_currency_type,payment_status)
+                VALUES ('$customer_name', '$reservation_date', '$contact_number', '$company_info', '$reservation_maker_info', '$employee_email_info'
+                ,'$deposit_date','$deposit_amount','$deposit_currency_type','$deposit_status' ,'$payment_date','$payment_amount','$payment_currency_type','$payment_status' )";
     $result1 = $mysqli->query($query1);
 
     if (!$result1) {
