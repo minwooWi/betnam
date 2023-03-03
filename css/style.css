@@ -349,7 +349,7 @@
 }
 
 .deposit_wrap{
-    margin: 0 auto;
+    margin-left: 350px;
     display: flex;
     width: 555px;
 }
