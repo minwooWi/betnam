@@ -115,8 +115,17 @@ if(isset($_POST['hotelSubmit'])) {
     $reservation_code = mysqli_real_escape_string($mysqli, $_POST['reservation_code']);
     $hotel_name = mysqli_real_escape_string($mysqli, $_POST['hotel_name']);
     $hotel_company_info = mysqli_real_escape_string($mysqli, $_POST['hotel_company_info']);
+
     $checkin_date = mysqli_real_escape_string($mysqli, $_POST['checkin_date']);
+    $checkin_date_si = mysqli_real_escape_string($mysqli, $_POST['checkin_date_si']);
+    $checkin_date_bun = mysqli_real_escape_string($mysqli, $_POST['checkin_date_bun']);
+    $checkin_date_result = $checkin_date . " " . $checkin_date_si . ":" . $checkin_date_bun . ":00";
+
     $checkout_date = mysqli_real_escape_string($mysqli, $_POST['checkout_date']);
+    $checkout_date_si = mysqli_real_escape_string($mysqli, $_POST['checkout_date_si']);
+    $checkout_date_bun = mysqli_real_escape_string($mysqli, $_POST['checkout_date_bun']);
+    $checkout_date_result = $checkout_date . " " . $checkout_date_si . ":" . $checkout_date_bun . ":00";
+
     $room_count = mysqli_real_escape_string($mysqli, $_POST['room_count']);
     $room_type = mysqli_real_escape_string($mysqli, $_POST['room_type']);
     $adult_count = mysqli_real_escape_string($mysqli, $_POST['adult_count']);
@@ -154,7 +163,7 @@ if(isset($_POST['hotelSubmit'])) {
     // Insert data into golf_reservation_info table using the reservation_number from customer_info table
     $query2 = "INSERT INTO hotel_reservation_info 
             (reservation_number, reservation_code, hotel_name, hotel_company_info, checkin_date, checkout_date, room_count, room_type, adult_count, child_count, breakfast_included, bed_type, request)
-          VALUES ('$reservation_number','$reservation_code', '$hotel_name', '$hotel_company_info', '$checkin_date', '$checkout_date', '$room_count', '$room_type', '$adult_count', '$child_count', '$breakfast_included', '$bed_type', '$request')";
+          VALUES ('$reservation_number','$reservation_code', '$hotel_name', '$hotel_company_info', '$checkin_date_result', '$checkout_date_result', '$room_count', '$room_type', '$adult_count', '$child_count', '$breakfast_included', '$bed_type', '$request')";
 
     $result2 = $mysqli->query($query2);
 

@@ -186,13 +186,61 @@ include_once("./include/left.php");
                             체크인
                         </div>
                         <div class="reservation_input_wrap">
-                            <input type="date" name="checkin_date" class="reservation_input" id="checkin_date" required>
+                            <input type="date" name="checkin_date" class="" id="checkin_date" required>
+                            <select name="checkin_date_si" style="width:49%; text-align:center;">
+                                <?php
+                                for($si=0; $si<=24; $si++) {
+                                    if($si < 10) {
+                                        $si = "0" . $si;
+                                    }
+                                    ?>
+                                    <option value="<?=$si?>"><?=$si?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            <select name="checkin_date_bun" style="width:48.8%; text-align:center;">
+                                <?php
+                                for($bun=0; $bun<=59; $bun++) {
+                                    if($bun < 10) {
+                                        $bun = "0" . $bun;
+                                    }
+                                    ?>
+                                    <option value="<?=$bun?>"><?=$bun?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="reservation_info">
                             체크아웃
                         </div>
                         <div class="reservation_input_wrap">
-                            <input type="date" name="checkout_date" class="reservation_input" id="checkout_date" required>
+                            <input type="date" name="checkout_date" class="" id="checkout_date" required>
+                            <select name="checkout_date_si" style="width:49%; text-align:center;">
+                                <?php
+                                for($si=0; $si<=24; $si++) {
+                                    if($si < 10) {
+                                        $si = "0" . $si;
+                                    }
+                                    ?>
+                                    <option value="<?=$si?>"><?=$si?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            <select name="checkout_date_bun" style="width:48.8%; text-align:center;">
+                                <?php
+                                for($bun=0; $bun<=59; $bun++) {
+                                    if($bun < 10) {
+                                        $bun = "0" . $bun;
+                                    }
+                                    ?>
+                                    <option value="<?=$bun?>"><?=$bun?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
