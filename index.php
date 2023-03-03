@@ -2,108 +2,133 @@
 //including the database connection file
 include_once("./datasource/config.php");
 
+$is_sub="";
+$tag_title = "Manage Reservation";
+
+include_once("./include/header.php");
+include_once("./include/left.php");
+
 //fetching data in descending order (lastest entry first)
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
-$result = mysqli_query($mysqli, "SELECT * FROM golf_reservation_info"); // using mysqli_query instead
+
+$list_query = "
+	(
+		SELECT 
+			reservation_number
+			, '골프' AS reservation_gubun_result
+			, 'golf' AS reservation_gubun
+			, golf_course_name AS course_name
+			, golf_company_info AS company_info
+			, NULL AS tour_time_from
+			, NULL AS tour_time_to
+			, reservation_schedule
+			, tee_time
+			, hole
+			, NULL AS checkin_date
+			, NULL AS checkout_date
+			, headcount
+			, NULL AS room_count
+			, NULL AS room_type
+			, NULL AS car_pickup_time
+			, NULL AS car_pickup_location
+			, NULL AS car_send_time
+			, NULL AS car_send_location
+			, NULL AS adult_count
+			, NULL AS child_count
+			, NULL AS guide_included 
+			, NULL AS details
+			, NULL AS child_age
+			, NULL AS period_time_from
+			, NULL AS period_time_to
+			, NULL AS breakfast_included
+			, NULL AS bed_type
+			, request
+			, included_items
+			, reservation_code
+			, exincluded_items
+		FROM 
+			golf_reservation_info 
+	) 
+	UNION ALL 
+	(
+		SELECT 
+			reservation_number
+			, '호텔' AS reservation_gubun_result
+			, 'hotel' AS reservation_gubun
+			, hotel_name AS course_name
+			, hotel_company_info AS company_info
+			, NULL AS tour_time_from
+			, NULL AS tour_time_to
+			, NULL AS reservation_schedule
+			, NULL AS tee_time
+			, NULL AS hole
+			, checkin_date
+			, checkout_date
+			, NULL AS headcount
+			, room_count
+			, room_type
+			, NULL AS car_pickup_time
+			, NULL AS car_pickup_location
+			, NULL AS car_send_time
+			, NULL AS car_send_location
+			, adult_count
+			, child_count
+			, NULL AS guide_included 
+			, NULL AS details
+			, NULL AS child_age
+			, NULL AS period_time_from
+			, NULL AS period_time_to
+			, breakfast_included
+			, bed_type
+			, request
+			, NULL AS included_items
+			, reservation_code
+			, exincluded_items
+		FROM 
+			hotel_reservation_info
+	)
+	UNION ALL 
+	(
+		SELECT 
+			reservation_number
+			, '투어' AS reservation_gubun_result
+			, 'tour' AS reservation_gubun
+			, tour_name AS course_name
+			, NULL AS company_info
+			, tour_time_from
+			, tour_time_to
+			, NULL AS reservation_schedule
+			, NULL AS tee_time
+			, NULL AS hole
+			, NULL AS checkin_date
+			, NULL AS checkout_date
+			, NULL AS headcount
+			, NULL AS room_count
+			, NULL AS room_type
+			, car_pickup_time
+			, car_pickup_location
+			, car_send_time
+			, car_send_location
+			, adult_count
+			, child_count
+			, guide_included
+			, details
+			, child_age
+			, period_time_from
+			, period_time_to
+			, NULL AS breakfast_included
+			, NULL AS bed_type
+			, request
+			, included_items
+			, NULL AS reservation_code
+			, exincluded_items
+		FROM 
+			tour_reservation_info
+	)
+";
+
+$result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Manage Reservation</title>
-
-    <!-- Custom fonts for this template -->
-    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
-    <style> * {font-family: 'SUIT', sans-serif;} </style>
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-</head>
-
-<body id="page-top">
-
-<!-- Page Wrapper -->
-<div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">Manage Reservation</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="regist.html?crud=c&type=golf">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>골프 정보 입력</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="regist.html?crud=c&type=hotel">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>호텔 정보 입력</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="regist.html?crud=c&type=tour">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>투어 정보 입력</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Nav Item - Dashboard -->
-<!--        <li class="nav-item active">-->
-<!--            <a class="nav-link" href="regist.html?crud=c&type=vehicle">-->
-<!--                <i class="fas fa-fw fa-tachometer-alt"></i>-->
-<!--                <span>차량 정보 입력</span></a>-->
-<!--        </li>-->
-<!---->
-<!--            &lt;!&ndash; Divider &ndash;&gt;-->
-<!--        <hr class="sidebar-divider">-->
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="regist.html?crud=c&type=total">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>혼합 일괄 입력</span></a>
-        </li>
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-    </ul>
-    <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -125,8 +150,8 @@ $result = mysqli_query($mysqli, "SELECT * FROM golf_reservation_info"); // using
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">골프 예약 정보 리스트</h1>
-                <p class="mb-4">고객정보 및 골프장 예약정보 리스트 입니다.</p>
+                <h1 class="h3 mb-2 text-gray-800">예약 정보 리스트</h1>
+                <p class="mb-4">고객정보 및 예약정보 리스트 입니다.</p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
@@ -135,8 +160,9 @@ $result = mysqli_query($mysqli, "SELECT * FROM golf_reservation_info"); // using
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>골프 예약 번호</th>
-                                    <th>골프</th>
+                                    <th>예약 번호</th>
+                                    <th>예약 구분</th>
+                                    <th>회사정보</th>
                                     <th>업체정보</th>
                                     <th>예약 일정</th>
                                     <th>티옵시간</th>
@@ -149,8 +175,9 @@ $result = mysqli_query($mysqli, "SELECT * FROM golf_reservation_info"); // using
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>골프 예약 번호</th>
-                                    <th>골프</th>
+                                    <th>예약 번호</th>
+                                    <th>예약 구분</th>
+                                    <th>회사정보</th>
                                     <th>업체정보</th>
                                     <th>예약 일정</th>
                                     <th>티옵시간</th>
@@ -167,15 +194,16 @@ $result = mysqli_query($mysqli, "SELECT * FROM golf_reservation_info"); // using
                                 while($res = mysqli_fetch_array($result)) {
                                     echo "<tr>";
                                     echo "<td>".$res['reservation_number']."</td>";
-                                    echo "<td>".$res['golf_course_name']."</td>";
-                                    echo "<td>".$res['golf_company_info']."</td>";
+                                    echo "<td>".$res['reservation_gubun_result']."</td>";
+                                    echo "<td>".$res['course_name']."</td>";
+                                    echo "<td>".$res['company_info']."</td>";
                                     echo "<td>".$res['reservation_schedule']."</td>";
                                     echo "<td>".$res['tee_time']."</td>";
                                     echo "<td>".$res['hole']."</td>";
                                     echo "<td>".$res['headcount']."</td>";
                                     echo "<td>".$res['included_items']."</td>";
                                     echo "<td>".$res['request']."</td>";
-                                    echo "<td><a href=\"edit.php?crud=u&type=golf&reservation_number=$res[reservation_number]\">Edit</a> | <a href=\"delete.php?reservation_number=$res[reservation_number]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                                    echo "<td><a href=\"edit.php?crud=u&type=$res[reservation_gubun]&reservation_number=$res[reservation_number]\">Edit</a> | <a href=\"delete.php?reservation_number=$res[reservation_number]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
                                 }
                                 ?>
                             </table>
@@ -199,29 +227,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM golf_reservation_info"); // using
 </div>
 <!-- End of Page Wrapper -->
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="js/index.js"></script>
-<script src="js/common.js"></script>
-
-</body>
-
-</html>
+<?php
+	$footer_gb = "main";
+	include_once("./include/footer.php");
+?>

@@ -1,17 +1,16 @@
 -- 고객 정보 테이블
-create table customer_info
-(
-    customer_name          varchar(50)  not null,
-    reservation_date       date         not null,
-    contact_number         varchar(20)  not null,
-    reservation_number     int auto_increment primary key,
-    company_info           varchar(100) not null,
-    reservation_maker_info varchar(100) not null,
-    employee_email_info    varchar(100) null,
-    deposit_status         varchar(20)  not null,
-    payment_status         varchar(20)  not null,
-    reservation_code       varchar(20)  not null
+CREATE TABLE customer_info (
+                               customer_name          VARCHAR(50)  NOT NULL,
+                               reservation_date       DATE         NOT NULL,
+                               contact_number         VARCHAR(20)  NOT NULL,
+                               reservation_number     INT AUTO_INCREMENT PRIMARY KEY,
+                               company_info           VARCHAR(100) NOT NULL,
+                               reservation_maker_info VARCHAR(100) NOT NULL,
+                               employee_email_info    VARCHAR(50)  NOT NULL,
+                               deposit_status         VARCHAR(20)  NOT NULL,
+                               payment_status         VARCHAR(20)  NOT NULL
 );
+
 
 -- 골프 예약 정보 테이블
 CREATE TABLE golf_reservation_info (
@@ -24,7 +23,7 @@ CREATE TABLE golf_reservation_info (
                                        headcount INT NOT NULL,
                                        included_items VARCHAR(200),
                                        request VARCHAR(200),
-                                       PRIMARY KEY (reservation_number)
+                                       reservation_code VARCHAR(20)  NOT NULL
 );
 
 -- 호텔 예약 정보 테이블
@@ -41,7 +40,7 @@ CREATE TABLE hotel_reservation_info (
                                         breakfast_included BOOLEAN NOT NULL,
                                         bed_type VARCHAR(50) NOT NULL,
                                         request VARCHAR(200),
-                                        PRIMARY KEY (reservation_number)
+                                        reservation_code VARCHAR(20)  NOT NULL
 );
 
 -- 투어 예약 정보 테이블
@@ -55,7 +54,7 @@ CREATE TABLE tour_reservation_info (
                                        child_count INT NOT NULL,
                                        guide_included BOOLEAN NOT NULL,
                                        request VARCHAR(200),
-                                       PRIMARY KEY (reservation_number)
+                                       reservation_code VARCHAR(20)  NOT NULL
 );
 
 -- 차량 예약 정보 테이블
@@ -73,5 +72,5 @@ CREATE TABLE car_reservation_info (
                                       luggage_count INT NOT NULL,
                                       golf_bag_count INT NOT NULL,
                                       request VARCHAR(200),
-                                      PRIMARY KEY (reservation_number)
+                                      reservation_code VARCHAR(20)  NOT NULL
 );

@@ -6,10 +6,22 @@
     cursor : pointer;
 }
 
+#savePdfBtn2 {
+    width: 100px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+#savePdfBtn3 {
+    width: 100px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
 .mainBanner{
   width: 100px;
   float: right;
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 .label{
@@ -19,7 +31,7 @@
 
 .contentBox{
     margin: 20px auto;
-    width: 555px;
+    width: 650px;
 }
 
 .contentBox.titleWrap{
@@ -60,6 +72,7 @@
     border: 1px solid;
     background : rgb(146, 52, 74);
     color: white;
+	padding-left:2px;
 }
 
 .contentBox > .company_info_wrap > .company_input_wrap{
@@ -116,6 +129,19 @@
     color: black;
 }
 
+.main_reservation_info_wrap > .reservation_info02 {
+    border-bottom: 1px solid;
+    background: rgb(250, 240, 229);
+    color: black;
+}
+
+.main_reservation_info_wrap > .reservation_info03 {
+    border-bottom: 1px solid;
+    background: rgb(250, 240, 229);
+    color: black;
+	padding-top:10px;
+}
+
 .main_reservation_info_wrap > .reservation_input_wrap{
     width: 70%;
 }
@@ -126,7 +152,7 @@
 }
 
 .main_reservation_desc{
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .travelAgentInfo{
@@ -134,6 +160,7 @@
     border: 1px solid;
     background : rgb(146, 52, 74);
     color: white;
+	padding-left:2px;
 }
 
 .travelAgentInfoInputWrap{
@@ -172,6 +199,7 @@
 .period_time_from_input{
     width: 100%;
     height: 100%;
+	text-align:center;
 }
 
 .period_time_to_wrap{
@@ -181,8 +209,147 @@
 .period_time_to_input{
     width: 100%;
     height: 100%;
+	text-align:center;
 }
 
 .people_count{
     width: 16.6%;
+}
+
+
+/** CSS�߰� -2023.03.02 **/
+.travelAgentInfo01 {
+    width: 133px;
+    border: 1px solid;
+    background : rgb(146, 52, 74);
+    color: white;
+	padding-left:2px;
+}
+
+.travelAgentInfoInputWrap01 {
+    width: 517px;
+}
+
+.contentBox > .company_info_wrap > .company_info01 {
+    width: 133px;
+    border: 1px solid;
+    background : rgb(146, 52, 74);
+    color: white;
+	padding-left:2px;
+}
+
+.contentBox > .company_info_wrap > .reservation_maker_info_wrap01 {
+    width: 170px;
+}
+
+#reservation_maker_info {
+	width:100%; height:100%;
+}
+
+#customer_name, #reservation_date, #contact_number {
+	width:216px;
+	height:100%;
+	text-align:center;
+}
+
+#reservation_date {
+	text-align:center;
+}
+
+#adult_count, #child_count, #child_age {
+	width:100%;
+	height:49px;
+	text-align:center;
+}
+
+#tour_time_from, #tour_time_to, #car_pickup_time, #car_send_time {
+    width: 100%;
+    text-align: center;
+}
+
+#car_pickup_location, #car_send_location {
+	width:100%;
+}
+
+.top_main_reservation_desc {
+	letter-spacing:-1px;
+}
+
+
+.main_reservation_info_wrap > .reservation_info04 {
+    border-bottom: 1px solid;
+    width: 165px !important;
+    background: rgb(250, 240, 229);
+    color: black;
+}
+
+.main_reservation_info_wrap > .reservation_info05 {
+    border-bottom: 1px solid;
+    width: 100px !important;
+    background: rgb(250, 240, 229);
+    color: black;
+}
+
+.main_reservation_info_wrap > .reservation_input_wrap03 {
+    width:160px;
+}
+
+#checkin_date, #checkout_date {
+	width:100%;
+	text-align:center;
+}
+
+.reservation_input_wrap04 {
+    width:535px;
+}
+
+.reservation_input_wrap04_1 {
+    width:485px;
+}
+
+.reservation_input_wrap04 > .reservation_input, .reservation_input_wrap04_1 > .reservation_input {
+    width: 100%;
+    height: 100%;
+}
+
+.period_time_from_wrap04 {
+    width:232px;
+}
+
+.period_time_to_wrap04 {
+    width:233px;
+}
+
+.wd85 {
+	width:85px;
+}
+
+.wd185 {
+	width:184px;
+}
+
+.pdt6 {
+	padding-top:6px;
+}
+
+.pdt12 {
+	padding-top:12px;
+}
+
+.notBorder {
+	border-radius:0px !important;
+}
+
+.textArea_topTr {
+	line-height:14px; width:100%; height:100%; overflow:hidden; font-size:13px;
+}
+
+#car_pickup_location, #car_send_location {
+	height:100%;
+}
+
+.deposit_wrap{
+    margin: 0 auto;
+    display: flex;
+    width: 555px;
 }

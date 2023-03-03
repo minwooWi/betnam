@@ -18,8 +18,17 @@ if(isset($_POST['golfSubmit'])) {
     $company_info = mysqli_real_escape_string($mysqli, $_POST['company_info']);
     $reservation_maker_info = mysqli_real_escape_string($mysqli, $_POST['reservation_maker_info']);
     $employee_email_info = mysqli_real_escape_string($mysqli, $_POST['employee_email_info']);
+
+    $deposit_date = mysqli_real_escape_string($mysqli, $_POST['deposit_date']);
+    $deposit_amount = mysqli_real_escape_string($mysqli, $_POST['deposit_amount']);
+    $deposit_currency_type = mysqli_real_escape_string($mysqli, $_POST['deposit_currency_type']);
     $deposit_status = mysqli_real_escape_string($mysqli, $_POST['deposit_status']);
+
+    $payment_date = mysqli_real_escape_string($mysqli, $_POST['payment_date']);
+    $payment_amount = mysqli_real_escape_string($mysqli, $_POST['payment_amount']);
+    $payment_currency_type = mysqli_real_escape_string($mysqli, $_POST['payment_currency_type']);
     $payment_status = mysqli_real_escape_string($mysqli, $_POST['payment_status']);
+
 
     // Retrieve input fields and escape special characters
     $golf_course_name = mysqli_real_escape_string($mysqli, $_POST['golf_course_name']);
@@ -42,8 +51,10 @@ if(isset($_POST['golfSubmit'])) {
 
     // Insert data into customer_info table
     $query1 = "INSERT INTO customer_info 
-                (customer_name, reservation_date, contact_number, company_info, reservation_maker_info,employee_email_info, deposit_status, payment_status)
-                VALUES ('$customer_name', '$reservation_date', '$contact_number', '$company_info', '$reservation_maker_info', '$employee_email_info', '$deposit_status', '$payment_status' )";
+                (customer_name, reservation_date, contact_number, company_info, reservation_maker_info,employee_email_info
+                ,deposit_date,deposit_amount,deposit_currency_type,deposit_status ,payment_date,payment_amount,payment_currency_type,payment_status)
+                VALUES ('$customer_name', '$reservation_date', '$contact_number', '$company_info', '$reservation_maker_info', '$employee_email_info'
+                ,'$deposit_date','$deposit_amount','$deposit_currency_type','$deposit_status' ,'$payment_date','$payment_amount','$payment_currency_type','$payment_status' )";
     $result1 = $mysqli->query($query1);
 
     if (!$result1) {
@@ -171,11 +182,29 @@ if(isset($_POST['tourSubmit'])) {
 
     // TOUR INFO
     $tour_name = mysqli_real_escape_string($mysqli, $_POST['tour_name']);
-    $tour_time_from = mysqli_real_escape_string($mysqli, $_POST['tour_time_from']);
+	
+    $tour_time_from = mysqli_real_escape_string($mysqli, $_POST['tour_time_from']);	
+	$tour_time_from_si = mysqli_real_escape_string($mysqli, $_POST['tour_time_from_si']);
+	$tour_time_from_bun = mysqli_real_escape_string($mysqli, $_POST['tour_time_from_bun']);
+	$tour_time_from_result = $tour_time_from . " " . $tour_time_from_si . ":" . $tour_time_from_bun . ":00";
+	
     $tour_time_to = mysqli_real_escape_string($mysqli, $_POST['tour_time_to']);
+	$tour_time_to_si = mysqli_real_escape_string($mysqli, $_POST['tour_time_to_si']);
+	$tour_time_to_bun = mysqli_real_escape_string($mysqli, $_POST['tour_time_to_bun']);
+	$tour_time_to_result = $tour_time_to . " " . $tour_time_to_si . ":" . $tour_time_to_bun . ":00";
+
     $car_pickup_time = mysqli_real_escape_string($mysqli, $_POST['car_pickup_time']);
+	$car_pickup_time_si = mysqli_real_escape_string($mysqli, $_POST['car_pickup_time_si']);
+	$car_pickup_time_bun = mysqli_real_escape_string($mysqli, $_POST['car_pickup_time_bun']);
+	$car_pickup_time_result = $car_pickup_time . " " . $car_pickup_time_si . ":" . $car_pickup_time_bun . ":00";
+	
     $car_pickup_location = mysqli_real_escape_string($mysqli, $_POST['car_pickup_location']);
+
     $car_send_time = mysqli_real_escape_string($mysqli, $_POST['car_send_time']);
+	$car_send_time_si = mysqli_real_escape_string($mysqli, $_POST['car_send_time_si']);
+	$car_send_time_bun = mysqli_real_escape_string($mysqli, $_POST['car_send_time_bun']);
+	$car_send_time_result = $car_send_time . " " . $car_send_time_si . ":" . $car_send_time_bun . ":00";
+
     $car_send_location = mysqli_real_escape_string($mysqli, $_POST['car_send_location']);
     $adult_count = mysqli_real_escape_string($mysqli, $_POST['adult_count']);
     $child_count = mysqli_real_escape_string($mysqli, $_POST['child_count']);
@@ -217,7 +246,7 @@ if(isset($_POST['tourSubmit'])) {
                 (reservation_number, tour_name, tour_time_from, tour_time_to, car_pickup_time, car_pickup_location, car_send_time, car_send_location
                 ,adult_count, child_count, guide_included, request, included_items, exincluded_items, details, child_age,
                  period_time_from, period_time_to) 
-                VALUES ('$reservation_number', '$tour_name', '$tour_time_from', '$tour_time_to', '$car_pickup_time', '$car_pickup_location', '$car_send_time', '$car_send_location'
+                VALUES ('$reservation_number', '$tour_name', '$tour_time_from_result', '$tour_time_to_result', '$car_pickup_time_result', '$car_pickup_location', '$car_send_time_result', '$car_send_location'
                 ,'$adult_count', '$child_count', '$guide_included', '$request', '$included_items', '$exincluded_items', '$details', '$child_age',
                  '$period_time_from', '$period_time_to')";
 

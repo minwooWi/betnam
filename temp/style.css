@@ -1,0 +1,17 @@
+#savePdfBtn{
+    width: 100px;
+    border: 1px solid;
+    cursor : pointer;
+}
+
+.contentBox{
+    margin: 0 auto;
+    width: 555px;
+    border: 1px solid;
+}
+
+.contentBox > .title{
+    margin: 0 auto;
+    width: 555px;
+    border: 1px solid;
+}
