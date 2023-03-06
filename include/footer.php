@@ -34,6 +34,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- custom -->
+<script src="./js/jspdf.min.js?dt=<?php echo date("YmdHis"); ?>"></script>
+<script src="./js/html2canvas.js?dt=<?php echo date("YmdHis"); ?>"></script>
 <script src="js/custom.js?dt=<?php echo date("YmdHis"); ?>"></script>
 <script src="js/common.js?dt=<?php echo date("YmdHis"); ?>"></script>
 </body>

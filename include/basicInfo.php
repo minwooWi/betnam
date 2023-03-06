@@ -11,6 +11,7 @@ if($r_crud == "c") {
     <div class="titleKor">예약 확정서</div>
     <div class="titleEng">CONFIRMATION LETTER</div>
     <input id="insertInput" type="submit" class="btn btn-primary btn-block">
+    <div id="savePdfBtn" class="btn-block">PDF 다운로드</div>
 </div>
 
 <div class="contentBox">

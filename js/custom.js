@@ -14,11 +14,11 @@ $(document).ready(function() {
   crudUrl = (crudUrl === 'c') ? "add.php" : "edit.php";
 
   if(type == 'golf'){
-    document.getElementById("golf").style.display = 'block';
     $('#hotel').remove();
     $('#tour').remove();
     $('#vehicle').remove();
-    $("#golf").wrap("<form action="+crudUrl+" method='post' name='golf'></form>");
+    $("#golf").wrap("<form action="+crudUrl+" method='post' name='golf' style='width: 1000px !important;margin: 0 auto;'></form>");
+    document.getElementById("golf").style.display = 'block';
 
     if(crudType === "c"){
       $('#insertInput').attr('name','golfSubmit');
@@ -28,12 +28,13 @@ $(document).ready(function() {
       $('#updateInput').val('골프예약정보수정');
     }
 
-  }else if(type == 'hotel'){
-    document.getElementById("hotel").style.display = 'block';
+  }
+  if(type == 'hotel'){
     $('#golf').remove();
     $('#tour').remove();
     $('#vehicle').remove();
-    $("#hotel").wrap("<form action="+crudUrl+" method='post' name='hotel'></form>");
+    $("#hotel").wrap("<form action="+crudUrl+" method='post' name='hotel' style='width: 1000px !important;margin: 0 auto;'></form>");
+    document.getElementById("hotel").style.display = 'block';
 
     if(crudType === "c"){
       $('#insertInput').attr('name','hotelSubmit');
@@ -42,12 +43,13 @@ $(document).ready(function() {
       $('#updateInput').attr('name','hotelUpdate');
       $('#updateInput').val('호텔예약정보수정');
     }
-  }else if(type == 'tour'){
-    document.getElementById("tour").style.display = 'block';
+  }
+  if(type == 'tour'){
     $('#hotel').remove();
     $('#golf').remove();
     $('#vehicle').remove();
-    $("#tour").wrap("<form action="+crudUrl+" method='post' name='tour'></form>");
+    $("#tour").wrap("<form action="+crudUrl+" method='post' name='tour' style='width: 1000px !important;margin: 0 auto;'></form>");
+    document.getElementById("tour").style.display = 'block';
 
     if(crudType === "c"){
       $('#insertInput').attr('name','tourSubmit');
