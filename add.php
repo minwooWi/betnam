@@ -130,9 +130,13 @@ if(isset($_POST['hotelSubmit'])) {
     $room_type = mysqli_real_escape_string($mysqli, $_POST['room_type']);
     $adult_count = mysqli_real_escape_string($mysqli, $_POST['adult_count']);
     $child_count = mysqli_real_escape_string($mysqli, $_POST['child_count']);
+    $child_age = mysqli_real_escape_string($mysqli, $_POST['child_age']);
     $breakfast_included = mysqli_real_escape_string($mysqli, $_POST['breakfast_included']);
     $bed_type = mysqli_real_escape_string($mysqli, $_POST['bed_type']);
     $request = mysqli_real_escape_string($mysqli, $_POST['request']);
+
+    $early_checkin = mysqli_real_escape_string($mysqli, $_POST['early_checkin']);
+    $late_checkout = mysqli_real_escape_string($mysqli, $_POST['late_checkout']);
 
     // Check connection
     if ($mysqli->connect_error) {
@@ -162,8 +166,8 @@ if(isset($_POST['hotelSubmit'])) {
 
     // Insert data into golf_reservation_info table using the reservation_number from customer_info table
     $query2 = "INSERT INTO hotel_reservation_info 
-            (reservation_number, reservation_code, hotel_name, hotel_company_info, checkin_date, checkout_date, room_count, room_type, adult_count, child_count, breakfast_included, bed_type, request)
-          VALUES ('$reservation_number','$reservation_code', '$hotel_name', '$hotel_company_info', '$checkin_date_result', '$checkout_date_result', '$room_count', '$room_type', '$adult_count', '$child_count', '$breakfast_included', '$bed_type', '$request')";
+            (reservation_number, reservation_code, hotel_name, hotel_company_info, checkin_date, checkout_date, room_count, room_type, adult_count, child_count, child_age, breakfast_included, bed_type, request, early_checkin, late_checkout)
+          VALUES ('$reservation_number','$reservation_code', '$hotel_name', '$hotel_company_info', '$checkin_date_result', '$checkout_date_result', '$room_count', '$room_type', '$adult_count', '$child_count', '$child_age', '$breakfast_included', '$bed_type', '$request', '$early_checkin', '$late_checkout')";
 
     $result2 = $mysqli->query($query2);
 

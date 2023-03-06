@@ -260,19 +260,25 @@ include_once("./include/left.php");
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
-                        <div class="reservation_info">
-                            인원수
-							<div class="top_main_reservation_desc">(성인)</div>
+                        <div class="reservation_info04">
+                            인원수<br />
+                            <span class="top_main_reservation_desc">(성인)</span>
                         </div>
-                        <div class="reservation_input_wrap">
+                        <div class="hotelAdultInputBox">
                             <input type="number" name="adult_count" class="reservation_input" id="adult_count" required>
                         </div>
-                        <div class="reservation_info">
-                            인원수
-							<div class="top_main_reservation_desc">(어린이)</div>
+                        <div class="reservation_info05">
+                            인원수<br />
+                            <span class="top_main_reservation_desc">(어린이)</span>
                         </div>
-                        <div class="reservation_input_wrap">
+                        <div class="" style="width:65px;">
                             <input type="number" name="child_count" class="reservation_input" id="child_count" required>
+                        </div>
+                        <div class="reservation_info05 pdt12">
+                            어린이 나이
+                        </div>
+                        <div class="wd85">
+                            <input type="number" name="child_age" class="" id="child_age">
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -296,6 +302,22 @@ include_once("./include/left.php");
                                 <option value="0">더블</option>
                                 <option value="1">트윈</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info04">
+                            얼리 체크인
+                        </div>
+                        <div class="reservation_input_wrap04_1">
+                            <input type="text" name="early_checkin" class="reservation_input" id="early_checkin" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info04">
+                            레이트 체크아웃
+                        </div>
+                        <div class="reservation_input_wrap04_1">
+                            <input type="text" name="late_checkout" class="reservation_input" id="late_checkout" required>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -395,7 +417,7 @@ include_once("./include/left.php");
                             어린이 나이
                         </div>
                         <div class="wd85">
-                            <input type="text" name="child_age" class="" id="child_age">
+                            <input type="number" name="child_age" class="" id="child_age">
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">

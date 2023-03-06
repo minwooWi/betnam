@@ -1,5 +1,15 @@
 * {font-family: 'SUIT', sans-serif;}
 
+.header_login_area {
+	text-align:right; padding:10px;
+	border-bottom:1px solid #efefef;
+}
+
+.header_login_area span {
+	font-weight:bold;
+	color:black;
+}
+
 #savePdfBtn{
     width: 100px;
     border: 1px solid;
@@ -328,6 +338,10 @@
 
 .wd185 {
 	width:184px;
+}
+
+.hotelAdultInputBox {
+    width:135px;
 }
 
 .pdt6 {

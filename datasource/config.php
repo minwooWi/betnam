@@ -13,10 +13,10 @@ $conn = mysql_connect("localhost","root","root")
  * using mysqli_connect instead
  */
 
-$databaseHost = 'localhost:3306';
-$databaseName = 'travelbetnam';
-$databaseUsername = 'root';
-$databasePassword = 'tiger';
+$databaseHost = 'db.naobilly.gabia.io:3306';
+$databaseName = 'dbnaobilly';
+$databaseUsername = 'naobilly';
+$databasePassword = 'naobilly1988!@#!';
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 mysqli_set_charset($mysqli,"utf8");

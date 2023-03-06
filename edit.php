@@ -115,20 +115,31 @@ if(isset($_POST['hotelUpdate'])) {
     $payment_status = mysqli_real_escape_string($mysqli, $_POST['payment_status']);
 
     // HOTEL INFO
-    $reservation_code = mysqli_real_escape_string($mysqli, $_POST['reservation_code']);
+    $checkin_date = mysqli_real_escape_string($mysqli, $_POST['checkin_date']);
+    $checkin_date_si = mysqli_real_escape_string($mysqli, $_POST['checkin_date_si']);
+    $checkin_date_bun = mysqli_real_escape_string($mysqli, $_POST['checkin_date_bun']);
+    $checkin_date_result = $checkin_date . " " . $checkin_date_si . ":" . $checkin_date_bun . ":00";
+
+    $checkout_date = mysqli_real_escape_string($mysqli, $_POST['checkout_date']);
+    $checkout_date_si = mysqli_real_escape_string($mysqli, $_POST['checkout_date_si']);
+    $checkout_date_bun = mysqli_real_escape_string($mysqli, $_POST['checkout_date_bun']);
+    $checkout_date_result = $checkout_date . " " . $checkout_date_si . ":" . $checkout_date_bun . ":00";
+
     $hotel_name = mysqli_real_escape_string($mysqli, $_POST['hotel_name']);
     $hotel_company_info = mysqli_real_escape_string($mysqli, $_POST['hotel_company_info']);
-    $checkin_date = mysqli_real_escape_string($mysqli, $_POST['checkin_date']);
-    $checkout_date = mysqli_real_escape_string($mysqli, $_POST['checkout_date']);
     $room_count = mysqli_real_escape_string($mysqli, $_POST['room_count']);
     $room_type = mysqli_real_escape_string($mysqli, $_POST['room_type']);
     $adult_count = mysqli_real_escape_string($mysqli, $_POST['adult_count']);
     $child_count = mysqli_real_escape_string($mysqli, $_POST['child_count']);
+    $child_age = mysqli_real_escape_string($mysqli, $_POST['child_age']);
     $breakfast_included = mysqli_real_escape_string($mysqli, $_POST['breakfast_included']);
     $bed_type = mysqli_real_escape_string($mysqli, $_POST['bed_type']);
     $request = mysqli_real_escape_string($mysqli, $_POST['request']);
 	$reservation_number = mysqli_real_escape_string($mysqli, $_POST['reservation_number']);
-	
+
+    $early_checkin = mysqli_real_escape_string($mysqli, $_POST['early_checkin']);
+    $late_checkout = mysqli_real_escape_string($mysqli, $_POST['late_checkout']);
+
 	// Start a transaction
     mysqli_begin_transaction($mysqli);
 	
@@ -142,11 +153,12 @@ if(isset($_POST['hotelUpdate'])) {
                               room_type=?,
                               adult_count=?,
                               child_count=?,
+                              child_age=?,
                               breakfast_included=?,
                               bed_type=?,
-                              request=?,
-                              reservation_code=?,
-                              exincluded_items=?
+                              early_checkin=?,
+                              late_checkout=?,
+                              request=?
                           WHERE reservation_number = ?";
 
     // Prepare the statements for the queries
@@ -158,7 +170,7 @@ if(isset($_POST['hotelUpdate'])) {
                           ,$deposit_date,$deposit_amount,$deposit_currency_type,$deposit_status, $payment_date,$payment_amount,$payment_currency_type,$payment_status,$reservation_number);
 
     // Bind the parameters for the golf_reservation_info table query
-    mysqli_stmt_bind_param($hotel_stmt, 'ssssisiisssssi', $hotel_name, $hotel_company_info, $checkin_date, $checkout_date, $room_count, $room_type, $adult_count, $child_count, $breakfast_included, $bed_type, $request, $reservation_code, $exincluded_items, $reservation_number);
+    mysqli_stmt_bind_param($hotel_stmt, 'ssssisiissssssi', $hotel_name, $hotel_company_info, $checkin_date_result, $checkout_date_result, $room_count, $room_type, $adult_count, $child_count, $child_age, $breakfast_included, $bed_type, $early_checkin, $late_checkout, $request, $reservation_number);
 
     // Execute the customer_info table query
     mysqli_stmt_execute($customer_stmt);
@@ -366,15 +378,30 @@ if($type == "hotel"){
         $reservation_number = $res['reservation_number'];
         $hotel_name = $res['hotel_name'];
         $hotel_company_info = $res['hotel_company_info'];
+
         $checkin_date = $res['checkin_date'];
+        $checkin_date_first = explode(' ', $checkin_date)[0];
+        $checkin_date_second = explode(' ', $checkin_date)[1];
+        $checkin_date_second_first = explode(':', $checkin_date_second)[0];
+        $checkin_date_second_second = explode(':', $checkin_date_second)[1];
+
         $checkout_date = $res['checkout_date'];
+        $checkout_date_first = explode(' ', $checkout_date)[0];
+        $checkout_date_second = explode(' ', $checkout_date)[1];
+        $checkout_date_second_first = explode(':', $checkout_date_second)[0];
+        $checkout_date_second_second = explode(':', $checkout_date_second)[1];
+
         $room_count = $res['room_count'];
         $room_type = $res['room_type'];
         $adult_count = $res['adult_count'];
         $child_count = $res['child_count'];
+        $child_age = $res['child_age'];
         $breakfast_included = $res['breakfast_included'];
         $bed_type = $res['bed_type'];
         $request = $res['request'];
+
+        $early_checkin = $res['early_checkin'];
+        $late_checkout = $res['late_checkout'];
     }
 }
 
@@ -646,13 +673,13 @@ include_once("./include/left.php");
                             <div class="top_main_reservation_desc">Reservation Code</div>
                         </div>
                         <div class="reservation_input_wrap04_1">
-                            <input type="text" name="reservation_code" class="reservation_input" id="reservation_code" value="<?php echo $reservation_number;?>" disabled>
+                            <input type="text" name="reservation_code" class="reservation_input" id="reservation_code" value="<?php echo $reservation_code;?>" disabled>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
                         <div class="reservation_info04">
                             호텔
-							<div class="top_main_reservation_desc">hotel</div>
+                            <div class="top_main_reservation_desc">hotel</div>
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="hotel_name" class="reservation_input" id="hotel_name" value="<?php echo $hotel_name;?>" required>
@@ -661,7 +688,7 @@ include_once("./include/left.php");
                     <div class="main_reservation_info_wrap">
                         <div class="reservation_info04">
                             업체 정보
-							<div class="top_main_reservation_desc">Information</div>
+                            <div class="top_main_reservation_desc">Information</div>
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="hotel_company_info" class="reservation_input" id="hotel_company_info" value="<?php echo $hotel_company_info;?>" required>
@@ -672,13 +699,85 @@ include_once("./include/left.php");
                             체크인
                         </div>
                         <div class="reservation_input_wrap">
-                            <input type="date" name="checkin_date" class="reservation_input" id="checkin_date" value="<?php echo $checkin_date;?>" required>
+                            <input type="date" name="checkin_date" class="" id="checkin_date" value="<?php echo $checkin_date_first;?>" required>
+                            <select name="checkin_date_si" style="width:49%; text-align:center;">
+                                <?php
+                                for($si=0; $si<=24; $si++) {
+                                    if($si < 10) {
+                                        $si = "0" . $si;
+                                    }
+
+                                    if($checkin_date_second_first == $si) {
+                                        $si_selected = " selected";
+                                    } else {
+                                        $si_selected = "";
+                                    }
+                                    ?>
+                                    <option value="<?=$si?>"<?php echo $si_selected; ?>><?=$si?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            <select name="checkin_date_bun" style="width:48.8%; text-align:center;">
+                                <?php
+                                for($bun=0; $bun<=59; $bun++) {
+                                    if($bun < 10) {
+                                        $bun = "0" . $bun;
+                                    }
+
+                                    if($checkin_date_second_second == $bun) {
+                                        $bun_selected = " selected";
+                                    } else {
+                                        $bun_selected = "";
+                                    }
+                                    ?>
+                                    <option value="<?=$bun?>"<?php echo $bun_selected; ?>><?=$bun?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="reservation_info">
                             체크아웃
                         </div>
                         <div class="reservation_input_wrap">
-                            <input type="date" name="checkout_date" class="reservation_input" id="checkout_date" value="<?php echo $checkout_date;?>" required>
+                            <input type="date" name="checkout_date" class="" id="checkout_date" value="<?php echo $checkout_date_first;?>" required>
+                            <select name="checkout_date_si" style="width:49%; text-align:center;">
+                                <?php
+                                for($si=0; $si<=24; $si++) {
+                                    if($si < 10) {
+                                        $si = "0" . $si;
+                                    }
+
+                                    if($checkout_date_second_first == $si) {
+                                        $si_selected = " selected";
+                                    } else {
+                                        $si_selected = "";
+                                    }
+                                    ?>
+                                    <option value="<?=$si?>"<?php echo $si_selected; ?>><?=$si?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            <select name="checkout_date_bun" style="width:48.8%; text-align:center;">
+                                <?php
+                                for($bun=0; $bun<=59; $bun++) {
+                                    if($bun < 10) {
+                                        $bun = "0" . $bun;
+                                    }
+
+                                    if($checkout_date_second_second == $bun) {
+                                        $bun_selected = " selected";
+                                    } else {
+                                        $bun_selected = "";
+                                    }
+                                    ?>
+                                    <option value="<?=$bun?>"<?php echo $bun_selected; ?>><?=$bun?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -693,24 +792,30 @@ include_once("./include/left.php");
                         <div class="reservation_info04">
                             침대 타입
                         </div>
-						<div class="reservation_input_wrap04_1">
+                        <div class="reservation_input_wrap04_1">
                             <input type="text" name="room_type" class="reservation_input" id="room_type" value="<?php echo $room_type;?>" required>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
-                        <div class="reservation_info">
-                            인원수
-							<div class="top_main_reservation_desc">(성인)</div>
+                        <div class="reservation_info04">
+                            인원수<br />
+                            <span class="top_main_reservation_desc">(성인)</span>
                         </div>
-                        <div class="reservation_input_wrap">
+                        <div class="hotelAdultInputBox">
                             <input type="number" name="adult_count" class="reservation_input" id="adult_count" value="<?php echo $adult_count;?>" required>
                         </div>
-                        <div class="reservation_info">
-                            인원수
-							<div class="top_main_reservation_desc">(어린이)</div>
+                        <div class="reservation_info05">
+                            인원수<br />
+                            <span class="top_main_reservation_desc">(어린이)</span>
                         </div>
-                        <div class="reservation_input_wrap">
+                        <div class="" style="width:65px;">
                             <input type="number" name="child_count" class="reservation_input" id="child_count" value="<?php echo $child_count;?>" required>
+                        </div>
+                        <div class="reservation_info05 pdt12">
+                            어린이 나이
+                        </div>
+                        <div class="wd85">
+                            <input type="text" name="child_age" class="" id="child_age" value="<?php echo $child_age;?>">
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -718,10 +823,9 @@ include_once("./include/left.php");
                             조식
                         </div>
                         <div class="reservation_input_wrap04_1">
-                            <select class="form-control" name="breakfast_included" id="breakfast_included" value="<?php echo $breakfast_included;?>" required>
-                                <option value="">조식 포함 여부 선택</option>
-                                <option value="0"<?php if($breakfast_included == "0") echo " SELECTED";?>>불포함</option>
-                                <option value="1"<?php if($breakfast_included == "1") echo " SELECTED";?>>포함</option>
+                            <select class="form-control" name="breakfast_included" id="breakfast_included" required>
+                                <option value="0" <?php if($breakfast_included == "0") echo "SELECTED";?>>불포함</option>
+                                <option value="1" <?php if($breakfast_included == "1") echo "SELECTED";?>>포함</option>
                             </select>
                         </div>
                     </div>
@@ -731,10 +835,25 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <select class="form-control" name="bed_type" id="bed_type" required>
-                                <option value="">Select bed_type</option>
                                 <option value="0" <?php if($bed_type == "0") echo "SELECTED";?>>더블</option>
                                 <option value="1" <?php if($bed_type == "1") echo "SELECTED";?>>트윈</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info04">
+                            얼리 체크인
+                        </div>
+                        <div class="reservation_input_wrap04_1">
+                            <input type="text" name="early_checkin" class="reservation_input" id="early_checkin" value="<?php echo $early_checkin;?>" required>
+                        </div>
+                    </div>
+                    <div class="main_reservation_info_wrap">
+                        <div class="reservation_info04">
+                            레이트 체크아웃
+                        </div>
+                        <div class="reservation_input_wrap04_1">
+                            <input type="text" name="late_checkout" class="reservation_input" id="late_checkout" value="<?php echo $late_checkout;?>" required>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -832,7 +951,7 @@ include_once("./include/left.php");
                             어린이 나이
                         </div>
                         <div class="wd85">
-                            <input type="text" name="child_age" class="" id="child_age" value="<?php echo $child_age;?>" />
+                            <input type="number" name="child_age" class="" id="child_age" value="<?php echo $child_age;?>" />
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
