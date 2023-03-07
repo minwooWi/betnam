@@ -33,8 +33,8 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">예약 정보 리스트</h1>
-                <p class="mb-4">고객정보 및 예약정보 리스트 입니다.</p>
+                <h1 class="h3 mb-2 text-gray-800">유의사항 및 취소규정 관리</h1>
+                <p class="mb-4">유의사항 및 취소규정 관리 리스트 입니다.</p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
@@ -63,7 +63,8 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                                     echo "<td>".$res['reservation_type']."</td>";
                                     echo "<td>".$res['title']."</td>";
                                     echo "<td>".$res['content']."</td>";
-                                    echo "<td><a href=\"editTerm.php?id=$res[id]\">Edit</a> | <a href=\"deleteTerm.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                                    echo "<td><a href=\"editTerm.php?id=$res[id]\">내용 수정</a></td>";
+//                                    echo "<td><a href=\"editTerm.php?id=$res[id]\">Edit</a> | <a href=\"deleteTerm.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
                                     echo "<td>".$res['created_at']."</td>";
                                     echo "<td>".$res['updated_at']."</td>";
                                 }
