@@ -109,7 +109,6 @@ A902, 115 Nguyen Van Linh, Vinh Trung, Hai Chau, Da Nang</textarea>
     <div class="titleEng">CONFIRMATION LETTER</div>
     <input type="hidden" value="<?php echo $reservation_number;?>" name="reservation_number">
     <input id="updateInput" type="submit" class="btn btn-primary btn-block">
-    <input id="saveExcelBtn" class="btn btn-primary btn-block" value="엑셀다운로드" onclick="excelFileExport();">
     <input id="savePdfBtn" class="btn btn-primary btn-block" value="PDF다운로드">
 </div>
 <div class="contentBox">

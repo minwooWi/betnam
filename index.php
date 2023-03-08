@@ -203,7 +203,11 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                                     echo "<td>".$res['headcount']."</td>";
                                     echo "<td>".$res['included_items']."</td>";
                                     echo "<td>".$res['request']."</td>";
-                                    echo "<td><a href=\"edit.php?crud=u&type=$res[reservation_gubun]&reservation_number=$res[reservation_number]\">수정</a> | <a href=\"delete.php?reservation_number=$res[reservation_number]\" onClick=\"return confirm('Are you sure you want to delete?')\">삭제</a></td>";
+                                    echo "<td>
+                                                <a href=\"edit.php?crud=u&type=$res[reservation_gubun]&reservation_number=$res[reservation_number]\">수정</a> | 
+                                                <a href=\"delete.php?reservation_number=$res[reservation_number]\" onClick=\"return confirm('Are you sure you want to delete?')\">삭제</a> |
+                                                <a href=\"$res[reservation_gubun]ExcelDownload.php?reservation_number=$res[reservation_number]&type=$res[reservation_gubun]\" id=\"saveExcelBtn\">엑셀다운로드</a>
+                                          </td>";
                                 }
                                 ?>
                             </table>
