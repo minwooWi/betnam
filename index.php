@@ -159,7 +159,7 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                <tr>
+                                <tr class="textCenter">
                                     <th>예약 번호</th>
                                     <th>예약 구분</th>
                                     <th>회사정보</th>
@@ -170,11 +170,11 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                                     <th>인원수</th>
                                     <th>포함사항</th>
                                     <th>노트</th>
-                                    <th>Update</th>
+                                    <th>관리</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
-                                <tr>
+                                <tr class="textCenter">
                                     <th>예약 번호</th>
                                     <th>예약 구분</th>
                                     <th>회사정보</th>
@@ -185,14 +185,14 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                                     <th>인원수</th>
                                     <th>포함사항</th>
                                     <th>노트</th>
-                                    <th>Update</th>
+                                    <th>관리</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php
                                 //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array
                                 while($res = mysqli_fetch_array($result)) {
-                                    echo "<tr>";
+                                    echo "<tr class=\"textCenter\">";
                                     echo "<td>".$res['reservation_number']."</td>";
                                     echo "<td>".$res['reservation_gubun_result']."</td>";
                                     echo "<td>".$res['course_name']."</td>";
@@ -203,7 +203,7 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                                     echo "<td>".$res['headcount']."</td>";
                                     echo "<td>".$res['included_items']."</td>";
                                     echo "<td>".$res['request']."</td>";
-                                    echo "<td><a href=\"edit.php?crud=u&type=$res[reservation_gubun]&reservation_number=$res[reservation_number]\">Edit</a> | <a href=\"delete.php?reservation_number=$res[reservation_number]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+                                    echo "<td><a href=\"edit.php?crud=u&type=$res[reservation_gubun]&reservation_number=$res[reservation_number]\">수정</a> | <a href=\"delete.php?reservation_number=$res[reservation_number]\" onClick=\"return confirm('Are you sure you want to delete?')\">삭제</a></td>";
                                 }
                                 ?>
                             </table>

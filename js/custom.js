@@ -93,6 +93,4 @@ $("#savePdfBtn").click(function () {
   });
 });
 
-
-
 });

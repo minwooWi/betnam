@@ -33,8 +33,8 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">유의사항 및 취소규정 관리</h1>
-                <p class="mb-4">유의사항 및 취소규정 관리 리스트 입니다.</p>
+                <h1 class="h3 mb-2 text-gray-800">주의사항 및 규정관리</h1>
+                <p class="mb-4">필독, 유의사항, 취소규정 관리 리스트 입니다.</p>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
@@ -42,15 +42,15 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>type</th>
-                                    <th>reservation_type</th>
-                                    <th>title</th>
-                                    <th>content</th>
-                                    <th>Edit</th>
-                                    <th>created_at</th>
-                                    <th>updated_at</th>
+                                <tr class="textCenter">
+                                    <th>번호</th>
+                                    <th>타입 유형</th>
+                                    <th>규정 유형</th>
+                                    <th>규정 제목</th>
+                                    <th>규정 내용</th>
+                                    <th>관리</th>
+                                    <th>등록일</th>
+                                    <th>수정일</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -58,15 +58,15 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
                                 //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array
                                 while($res = mysqli_fetch_array($result)) {
                                     echo "<tr>";
-                                    echo "<td>".$res['id']."</td>";
-                                    echo "<td>".$res['type']."</td>";
-                                    echo "<td>".$res['reservation_type']."</td>";
+                                    echo "<td class=\"textCenter\">".$res['id']."</td>";
+                                    echo "<td class=\"textCenter\">".$res['type']."</td>";
+                                    echo "<td class=\"textCenter\">".$res['reservation_type']."</td>";
                                     echo "<td>".$res['title']."</td>";
                                     echo "<td>".$res['content']."</td>";
-                                    echo "<td><a href=\"editTerm.php?id=$res[id]\">내용 수정</a></td>";
+                                    echo "<td class=\"textCenter\"><a href=\"editTerm.php?id=$res[id]\">내용 수정</a></td>";
 //                                    echo "<td><a href=\"editTerm.php?id=$res[id]\">Edit</a> | <a href=\"deleteTerm.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
-                                    echo "<td>".$res['created_at']."</td>";
-                                    echo "<td>".$res['updated_at']."</td>";
+                                    echo "<td class=\"textCenter\">".$res['created_at']."</td>";
+                                    echo "<td class=\"textCenter\">".$res['updated_at']."</td>";
                                 }
                                 ?>
                             </table>

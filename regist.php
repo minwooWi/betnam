@@ -131,7 +131,9 @@ include_once("./include/left.php");
                             <input type="text" name="request" class="reservation_input" id="request" required>
                         </div>
                     </div>
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+					
+					<?php include("./include/req_readingInfo.php");?>
+					
                 </div>
 
                 <?php include("./include/termsInfo.php");?>
@@ -320,7 +322,9 @@ include_once("./include/left.php");
                             <input type="text" name="request" class="reservation_input" id="request" required>
                         </div>
                     </div>
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+
+					<?php include("./include/req_readingInfo.php");?>
+					
                 </div>
 
                 <?php include("./include/termsInfo.php");?>
@@ -583,7 +587,9 @@ include_once("./include/left.php");
                             <input type="text" name="request" class="reservation_input" id="request" required>
                         </div>
                     </div>
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+					
+                    <?php include("./include/req_readingInfo.php");?>
+					
                 </div>
 
                 <?php include("./include/termsInfo.php");?>

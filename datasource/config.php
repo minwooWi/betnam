@@ -13,7 +13,7 @@ $conn = mysql_connect("localhost","root","root")
  * using mysqli_connect instead
  */
 
-$databaseHost = 'db.naobilly.gabia.io:3306';
+$databaseHost = 'db.naobilly.gabia.io';
 $databaseName = 'dbnaobilly';
 $databaseUsername = 'naobilly';
 $databasePassword = 'naobilly1988!@#!';

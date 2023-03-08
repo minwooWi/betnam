@@ -10,24 +10,6 @@
 	color:black;
 }
 
-#savePdfBtn{
-    width: 100px;
-    border: 1px solid;
-    cursor : pointer;
-}
-
-#savePdfBtn2 {
-    width: 100px;
-    border: 1px solid;
-    cursor: pointer;
-}
-
-#savePdfBtn3 {
-    width: 100px;
-    border: 1px solid;
-    cursor: pointer;
-}
-
 .mainBanner{
   width: 100px;
   float: right;
@@ -372,4 +354,8 @@
 .textAreaUpperWrap{
     width: 75%;
     height: 300px;
+}
+
+.textCenter {
+	text-align:center;
 }

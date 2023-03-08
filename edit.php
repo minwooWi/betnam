@@ -535,7 +535,6 @@ if($r_crud == "c") {
 include_once("./include/header.php");
 include_once("./include/left.php");
 ?>
-
         <div id="content-wrapper" class="d-flex flex-column" style="width: 1000px !important;margin: 0 auto;">
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -646,19 +645,13 @@ include_once("./include/left.php");
                             <input type="text" name="request" class="reservation_input" id="request" value="<?php echo $request;?>" required>
                         </div>
                     </div>
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+                    
+					<?php include("./include/req_readingInfo.php");?>
+					
                 </div>
-
-                <div class="contentBox">► 유의 사항
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
-                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
-                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
-                </div>
-                <div class="contentBox">► 취소 규정
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
-                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
-                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
-                </div>
+				
+                <?php include("./include/termsInfo.php");?>
+				
             </div>
             <!-- #### END GOLF RESERVATION FORM #### -->
 
@@ -864,19 +857,13 @@ include_once("./include/left.php");
                             <input type="text" name="request" class="reservation_input" id="request" value="<?php echo $request;?>" required>
                         </div>
                     </div>
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+					
+					<?php include("./include/req_readingInfo.php");?>
+					
                 </div>
 
-                <div class="contentBox">► 유의 사항
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
-                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
-                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
-                </div>
-                <div class="contentBox">► 취소 규정
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
-                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
-                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
-                </div>
+                <?php include("./include/termsInfo.php");?>
+				
             </div>
             <!-- #### END HOTEL RESERVATION FORM #### -->
 
@@ -1181,19 +1168,13 @@ include_once("./include/left.php");
                             <input type="text" name="request" class="reservation_input" id="request" value="<?php echo $request; ?>" required>
                         </div>
                     </div>
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 필독 : 예약자분의 영문성함으로 여권 또는 ID(거주증)에 대해 리셉션에서 확인이 요구됩니다.</div>
+                    
+					<?php include("./include/req_readingInfo.php");?>
+					
                 </div>
-
-                <div class="contentBox">► 유의 사항
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
-                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
-                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
-                </div>
-                <div class="contentBox">► 취소 규정
-                    <div class="main_reservation_desc" style="border-top: solid 0.3em rgb(171 131 104);">✓ 티옵 시간 15분 전 까지 대기 요망</div>
-                    <div class="main_reservation_desc">✓ 예약일자 7일 전 까지 취소 가능</div>
-                    <div class="main_reservation_desc" style="border-bottom: solid 0.3em rgb(171 131 104);">(악천후로 인한 취소 - 환불은 골프장의 규정에 따라 취소 규정이 달라질 수 있습니다)</div>
-                </div>
+				
+                <?php include("./include/termsInfo.php");?>
+				
             </div>
             <!-- #### END TOUR RESERVATION FORM #### -->
 
@@ -1208,3 +1189,40 @@ include_once("./include/left.php");
 	$footer_gb = "sub_edit";
 	include_once("./include/footer.php");
 ?>
+<script>
+    function excelFileExport() {
+        let wb = XLSX.utils.book_new();
+        let newWorksheet = excelHandler.getWorksheet();
+        XLSX.utils.book_append_sheet(wb, newWorksheet, excelHandler.getSheetName());
+        let wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), excelHandler.getExcelFileName());
+    }
+
+    const excelHandler = {
+        getExcelFileName : function(){
+            return 'golf_info_'+moment().format('YYYY-MM-DD HH:mm:ss')+'.xlsx';
+        },
+        getSheetName : function(){
+            return 'test-1';
+        },
+        getExcelData: function(){
+            let headers = ["Reservation Code", "Company Info", "Reservation Maker Info", "Customer Name", "Reservation Date", "Contact Number", "Employee Email Info", "Deposit Date", "Deposit Amount", "Deposit Currency Type", "Deposit Status", "Payment Date", "Payment Amount", "Payment Currency Type", "Payment Status", "Golf Course Name", "Golf Company Info", "Reservation Schedule", "Tee Time", "Hole", "Headcount", "Included Items", "Excluded Items", "Request"];
+
+            let data = [
+                ["<?php echo $reservation_code;?>", "<?php echo preg_replace('/\r\n|\r|\n/','',$company_info);?>", "<?php echo $reservation_maker_info;?>", "<?php echo $customer_name;?>", "<?php echo $reservation_date;?>", "<?php echo $contact_number;?>", "<?php echo $employee_email_info;?>", "<?php echo $deposit_date;?>", "<?php echo $deposit_amount;?>", "<?php echo $deposit_currency_type;?>", "<?php echo $deposit_status;?>", "<?php echo $payment_date;?>", "<?php echo $payment_amount;?>", "<?php echo $payment_currency_type;?>", "<?php echo $payment_status;?>", "<?php echo $golf_course_name;?>", "<?php echo $golf_company_info;?>", "<?php echo $reservation_schedule;?>", "<?php echo $tee_time;?>", "<?php echo $hole;?>", "<?php echo $headcount;?>", "<?php echo $included_items;?>", "<?php echo $exincluded_items;?>", "<?php echo $request;?>"]
+            ];
+
+            return [headers, ...data];
+        },
+        getWorksheet : function(){
+            return XLSX.utils.aoa_to_sheet(this.getExcelData());
+        }
+    }
+
+    function s2ab(s) {
+        let buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+        let view = new Uint8Array(buf);  //create uint8array as viewer
+        for (let i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+        return buf;
+    }
+</script>
