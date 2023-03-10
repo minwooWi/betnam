@@ -1178,9 +1178,9 @@ include_once("./include/left.php");
             </div>
             <!-- #### END TOUR RESERVATION FORM #### -->
 
-            <!-- Footer -->
-            <footer include-html="footer.html" class="sticky-footer bg-white"></footer>
-            <!-- End of Footer -->
+            <?php
+				include_once("./include/footerInfo.php");
+			?>
         </div>
     </div>
         <!-- End of Page Wrapper -->

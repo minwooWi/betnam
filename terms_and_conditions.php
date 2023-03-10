@@ -79,10 +79,10 @@ $result = mysqli_query($mysqli, $list_query); // using mysqli_query instead
 
         </div>
         <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer include-html="footer.html" class="sticky-footer bg-white"></footer>
-        <!-- End of Footer -->
+		
+        <?php
+			include_once("./include/footerInfo.php");
+		?>
 
     </div>
     <!-- End of Content Wrapper -->

@@ -19,6 +19,9 @@
             <a class="nav-link" href="regist.php?crud=c&type=golf">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>골프 정보 입력</span></a>
+            <a class="nav-link" href="excel.html">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>골프 정보 excel upload</span></a>
         </li>
 
         <!-- Divider -->

@@ -359,3 +359,37 @@
 .textCenter {
 	text-align:center;
 }
+
+/* 골프 */
+#reservation_code_html, #golf_course_name_html, 
+#golf_company_info_html,#reservation_schedule_html, 
+#tee_time_html, #hole_html, 
+#headcount_html, #included_items_html, 
+#exincluded_items_html, #request_html1 {
+	display:none;
+}
+
+/* 호텔 */
+#reservation_code_html2, #hotel_name_html, 
+#hotel_company_info_html, 
+#checkin_date_html, #checkout_date_html, 
+#room_count_html, #room_type_html, 
+#adult_count_html, #child_count_html, 
+#child_age_html, #breakfast_included_html, 
+#bed_type_html, #early_checkin_html, 
+#late_checkout_html, #request_html2 {
+	display:none;
+}
+
+/* 투어 */
+#tour_name_html, 
+#period_time_from_html, #period_time_to_html, 
+#details_html, #adult_count_html2, 
+#child_count_html2, #child_age_html2, 
+#tour_time_from_html, #tour_time_to_html, 
+#car_pickup_location_html, #car_pickup_time_html, 
+#car_send_location_html, #car_send_time_html, 
+#guide_included_html, #included_items_html2, 
+#exincluded_items_html2, #request_html3 {
+	display:none;
+}

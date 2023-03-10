@@ -118,7 +118,7 @@ if($type == "hotel"){
         XLSX.utils.book_append_sheet(wb, newWorksheet, excelHandler.getSheetName());
         let wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
         saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), excelHandler.getExcelFileName());
-        window.location.href = 'http://naobilly.kr/betnam/index.php';
+        window.location.href = '/betnam/index.php';
     }
 
     function s2ab(s) {

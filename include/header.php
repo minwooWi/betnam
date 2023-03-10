@@ -19,19 +19,20 @@
     <title><?php echo $tag_title; ?></title>
 	
     <!-- Custom fonts for this template -->
-    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet" />
+    <link href="./css/SUIT.css" rel="stylesheet" />
     <style> * {font-family: 'SUIT', sans-serif;} </style>
     <link href="./vendor/fontawesome-free/css/all.min.css?dt=<?php echo date("YmdHis"); ?>" rel="stylesheet" type="text/css" />
+	<!--
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	
+	-->
     <!-- Custom styles for this template -->
-    <link href="./css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="./css/sb-admin-2.min.css?dt=<?php echo date("YmdHis"); ?>" rel="stylesheet" />
 	
     <!-- Custom styles for this page -->
     <link href="./vendor/datatables/dataTables.bootstrap4.min.css?dt=<?php echo date("YmdHis"); ?>" rel="stylesheet" />
 	<?php if($is_sub == "Y") { ?>
 	<link href="./css/style.css?dt=<?php echo date("YmdHis"); ?>" rel="stylesheet" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css?dt=<?php echo date("YmdHis"); ?>" />
+	<link rel="stylesheet" href="./css/bootstrap.min.css?dt=<?php echo date("YmdHis"); ?>" />
 	<?php } else if($is_sub == "Login") { ?>
 	<link href="./css/login.css?dt=<?php echo date("YmdHis"); ?>" rel="stylesheet" />
 	<?php } else { ?>

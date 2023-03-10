@@ -32,7 +32,7 @@ include_once("./include/left.php");
                 </form>
             </nav>
             <!-- End of Topbar -->
-
+			
             <!-- #### START GOLF RESERVATION FORM #### -->
             <div id="golf" style="display: none">
                 <?php include("./include/basicInfo.php");?>
@@ -45,6 +45,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="reservation_code" class="reservation_input" id="reservation_code" enable>
+							<span id="reservation_code_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -54,6 +55,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="golf_course_name" class="reservation_input" id="golf-course-name" required>
+                            <span id="golf_course_name_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -63,6 +65,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="golf_company_info" class="reservation_input" id="golf-company-info" required>
+							<span id="golf_company_info_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -72,6 +75,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="date" name="reservation_schedule" class="reservation_input" id="reservation-schedule" required>
+							<span id="reservation_schedule_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -80,6 +84,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="time" name="tee_time" class="reservation_input" id="tee-time" required>
+							<span id="tee_time_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -94,6 +99,8 @@ include_once("./include/left.php");
                                 <option value="27">27</option>
                                 <option value="36">36</option>
                             </select>
+
+							<span id="hole_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -102,6 +109,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="number" name="headcount" class="reservation_input" id="headcount" required>
+							<span id="headcount_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -111,6 +119,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="included_items" class="reservation_input" id="included_items" required>
+							<span id="included_items_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -120,6 +129,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="exincluded_items" class="reservation_input" id="exincluded_items" required>
+							<span id="exincluded_items_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -128,7 +138,8 @@ include_once("./include/left.php");
                             <div class="top_main_reservation_desc">Note</div>
                         </div>
                         <div class="reservation_input_wrap04_1">
-                            <input type="text" name="request" class="reservation_input" id="request" required>
+                            <input type="text" name="request" class="reservation_input" id="request1" required>
+							<span id="request_html1"></span>
                         </div>
                     </div>
 					
@@ -140,7 +151,7 @@ include_once("./include/left.php");
 
             </div>
             <!-- #### END GOLF RESERVATION FORM #### -->
-
+			
             <!-- #### START HOTEL RESERVATION FORM #### -->
             <div id="hotel" style="display: none">
                 <?php
@@ -154,7 +165,8 @@ include_once("./include/left.php");
                             <div class="top_main_reservation_desc">Reservation Code</div>
                         </div>
                         <div class="reservation_input_wrap04_1">
-                            <input type="text" name="reservation_code" class="reservation_input" id="reservation_code">
+                            <input type="text" name="reservation_code" class="reservation_input" id="reservation_code2">
+							<span id="reservation_code_html2"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -164,6 +176,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="hotel_name" class="reservation_input" id="hotel_name" required>
+							<span id="hotel_name_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -173,6 +186,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="hotel_company_info" class="reservation_input" id="hotel_company_info" required>
+							<span id="hotel_company_info_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -205,6 +219,8 @@ include_once("./include/left.php");
                                 }
                                 ?>
                             </select>
+
+							<span id="checkin_date_html"></span>
                         </div>
                         <div class="reservation_info">
                             체크아웃
@@ -235,6 +251,8 @@ include_once("./include/left.php");
                                 }
                                 ?>
                             </select>
+
+							<span id="checkout_date_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -243,6 +261,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="number" name="room_count" class="reservation_input" id="room_count" required>
+							<span id="room_count_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -251,6 +270,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="room_type" class="reservation_input" id="room_type" required>
+							<span id="room_type_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -260,6 +280,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="hotelAdultInputBox">
                             <input type="number" name="adult_count" class="reservation_input" id="adult_count" required>
+							<span id="adult_count_html"></span>
                         </div>
                         <div class="reservation_info05">
                             인원수<br />
@@ -267,12 +288,14 @@ include_once("./include/left.php");
                         </div>
                         <div class="" style="width:65px;">
                             <input type="number" name="child_count" class="reservation_input" id="child_count" required>
+							<span id="child_count_html"></span>
                         </div>
                         <div class="reservation_info05 pdt12">
                             어린이 나이
                         </div>
                         <div class="wd85">
                             <input type="number" name="child_age" class="" id="child_age">
+							<span id="child_age_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -285,6 +308,8 @@ include_once("./include/left.php");
                                 <option value="0">불포함</option>
                                 <option value="1">포함</option>
                             </select>
+
+							<span id="breakfast_included_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -296,6 +321,7 @@ include_once("./include/left.php");
                                 <option value="0">더블</option>
                                 <option value="1">트윈</option>
                             </select>
+							<span id="bed_type_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -304,6 +330,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="early_checkin" class="reservation_input" id="early_checkin" required>
+							<span id="early_checkin_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -312,6 +339,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04_1">
                             <input type="text" name="late_checkout" class="reservation_input" id="late_checkout" required>
+							<span id="late_checkout_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -319,7 +347,8 @@ include_once("./include/left.php");
                             요청 사항
                         </div>
                         <div class="reservation_input_wrap04_1">
-                            <input type="text" name="request" class="reservation_input" id="request" required>
+                            <input type="text" name="request" class="reservation_input" id="request2" required>
+							<span id="request_html2"></span>
                         </div>
                     </div>
 
@@ -331,7 +360,7 @@ include_once("./include/left.php");
 
             </div>
             <!-- #### END HOTEL RESERVATION FORM #### -->
-
+			
             <!-- #### START TOUR RESERVATION FORM #### -->
             <div id="tour" style="display: none">
                 <?php
@@ -346,6 +375,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04">
                             <input type="text" name="tour_name" class="reservation_input" id="tour_name" required>
+							<span id="tour_name_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -355,12 +385,14 @@ include_once("./include/left.php");
                         </div>
                         <div class="period_time_from_wrap04">
                             <input type="date" name="period_time_from" class="period_time_from_input" id="period_time_from" required>
+							<span id="period_time_from_html"></span>
                         </div>
                         <div style="width: 10%;margin-top: 10px">
                             ~
                         </div>
                         <div class="period_time_to_wrap04">
                             <input type="date" name="period_time_to" class="period_time_to_input" id="period_time_to" required>
+							<span id="period_time_to_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -370,6 +402,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04">
                             <input type="text" name="details" class="reservation_input" id="details" required>
+							<span id="details_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -386,6 +419,7 @@ include_once("./include/left.php");
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
+							<span id="adult_count_html2"></span>
                         </div>
                         <div class="reservation_info05">
                             인원수<br />
@@ -400,12 +434,14 @@ include_once("./include/left.php");
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
+							<span id="child_count_html2"></span>
                         </div>
                         <div class="reservation_info05 pdt12">
                             어린이 나이
                         </div>
                         <div class="wd85">
                             <input type="number" name="child_age" class="" id="child_age">
+							<span id="child_age_html2"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -438,6 +474,7 @@ include_once("./include/left.php");
 								}
 							?>
 							</select>
+							<span id="tour_time_from_html"></span>
                         </div>
                         <div class="reservation_info04">
                             투어 종료 시간
@@ -468,6 +505,7 @@ include_once("./include/left.php");
 								}
 							?>
 							</select>
+							<span id="tour_time_to_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -476,6 +514,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="wd185">
                             <input type="text" name="car_pickup_location" class="" id="car_pickup_location" required>
+							<span id="car_pickup_location_html"></span>
                         </div>
                         <div class="reservation_info04">
                             차량 픽업 시간
@@ -506,6 +545,7 @@ include_once("./include/left.php");
 								}
 							?>
 							</select>
+							<span id="car_pickup_time_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -514,6 +554,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="wd185">
                             <input type="text" name="car_send_location" class="" id="car_send_location" required>
+							<span id="car_send_location_html"></span>
                         </div>
                         <div class="reservation_info04">
                             차량 샌딩 시간
@@ -544,6 +585,7 @@ include_once("./include/left.php");
 								}
 							?>
 							</select>
+							<span id="car_send_time_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -558,6 +600,7 @@ include_once("./include/left.php");
                                 <option value="3">한국어 현지 가이드 포함</option>
                                 <option value="4">한국어 가이드 포함</option>
                             </select>
+							<span id="guide_included_html"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -567,6 +610,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04">
                             <input type="text" name="included_items" class="reservation_input" id="included_items" required>
+							<span id="included_items_html2"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -576,6 +620,7 @@ include_once("./include/left.php");
                         </div>
                         <div class="reservation_input_wrap04">
                             <input type="text" name="exincluded_items" class="reservation_input" id="exincluded_items" required>
+							<span id="exincluded_items_html2"></span>
                         </div>
                     </div>
                     <div class="main_reservation_info_wrap">
@@ -584,7 +629,8 @@ include_once("./include/left.php");
                             <span class="top_main_reservation_desc">Special Request</span>
                         </div>
                         <div class="reservation_input_wrap04">
-                            <input type="text" name="request" class="reservation_input" id="request" required>
+                            <input type="text" name="request" class="reservation_input" id="request3" required>
+							<span id="request_html3"></span>
                         </div>
                     </div>
 					
@@ -596,10 +642,10 @@ include_once("./include/left.php");
 
             </div>
             <!-- #### END TOUR RESERVATION FORM #### -->
-
-            <!-- Footer -->
-            <footer include-html="footer.html" class="sticky-footer bg-white"></footer>
-            <!-- End of Footer -->
+			
+            <?php
+				include_once("./include/footerInfo.php");
+			?>
         </div>
     </div>
     <!-- End of Page Wrapper -->
